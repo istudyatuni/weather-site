@@ -13,7 +13,7 @@
 
 <div class="grid-item">
 	<input type="text" name="search" placeholder="Search for places ..." />
-	<img src={getIcon()} width="300" height="300" alt="" />
+	<img src={getIcon(data.weather[0].icon)} width="300" height="300" alt="" />
 	<p class="temperature">
 		{Math.round(data.main.temp - 273.16)}&deg;<span>C</span>
 	</p>
@@ -22,10 +22,9 @@
 	</p>
 	<hr color="lightgray" noshade size="1" width="100%" />
 	<div class="description">
-		<img src={image} width="60" height="60" alt={data.weather[0].description}>
+		<img src={image} width="60" height="60" alt={data.weather[0].description} />
 		<p class="title-case">{data.weather[0].description}</p>
 	</div>
-	<!-- <h4>{data.name}</h4> -->
 </div>
 
 <style type="text/css">

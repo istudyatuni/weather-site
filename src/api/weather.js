@@ -9,7 +9,7 @@ const refreshMinutes = 20
 export async function loadCityWeather(city = 'moscow') {
 	const current = new Date()
 
-	if (get(weather).current.until > current.getTime()) {
+	if (get(weather)?.current?.until > current.getTime()) {
 		return
 	}
 

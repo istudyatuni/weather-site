@@ -17,17 +17,24 @@
 	}
 
 	startTimer()
-	init()
+	const initial = init()
 </script>
 
-<main>
-	<Current />
-	<Info />
-</main>
+{#await initial}
+	<center class="loading">Loading</center>
+{:then}
+	<main>
+		<Current />
+		<Info />
+	</main>
+{/await}
 
 <style type="text/css">
 	main {
 		display: grid;
 		grid-template-columns: 20em auto;
+	}
+	.loading {
+		font-size: 2.5em;
 	}
 </style>
