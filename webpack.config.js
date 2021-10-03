@@ -1,12 +1,12 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
 
-const mode = process.env.NODE_ENV || 'development';
-const prod = mode === 'production';
+const mode = process.env.NODE_ENV || 'development'
+const prod = mode === 'production'
 
 module.exports = {
 	entry: {
-		'build/bundle': ['./src/main.js']
+		'build/bundle': ['./src/main.js'],
 	},
 	resolve: {
 		alias: {
@@ -14,12 +14,12 @@ module.exports = {
 			src: path.resolve(__dirname, 'src/'),
 		},
 		extensions: ['.mjs', '.js', '.svelte'],
-		mainFields: ['svelte', 'browser', 'module', 'main']
+		mainFields: ['svelte', 'browser', 'module', 'main'],
 	},
 	output: {
 		path: path.join(__dirname, '/public'),
 		filename: '[name].js',
-		chunkFilename: '[name].[id].js'
+		chunkFilename: '[name].[id].js',
 	},
 	module: {
 		rules: [
@@ -29,37 +29,34 @@ module.exports = {
 					loader: 'svelte-loader',
 					options: {
 						compilerOptions: {
-							dev: !prod
+							dev: !prod,
 						},
 						emitCss: prod,
-						hotReload: !prod
-					}
-				}
+						hotReload: !prod,
+					},
+				},
 			},
 			{
 				test: /\.css$/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					'css-loader'
-				]
+				use: [MiniCssExtractPlugin.loader, 'css-loader'],
 			},
 			{
 				// required to prevent errors from Svelte on Webpack 5+
 				test: /node_modules\/svelte\/.*\.mjs$/,
 				resolve: {
-					fullySpecified: false
-				}
-			}
-		]
+					fullySpecified: false,
+				},
+			},
+		],
 	},
 	mode,
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: '[name].css'
-		})
+			filename: '[name].css',
+		}),
 	],
 	devtool: prod ? false : 'source-map',
 	devServer: {
-		hot: true
-	}
-};
+		hot: true,
+	},
+}
