@@ -7,23 +7,29 @@
 	import WindStatus from 'src/components/highlights/WindStatus'
 
 	import './highlights/common.css'
+
+	import { weather } from 'src/stores/weather'
+</script>
+
+<script>
+	$: data = $weather.current.content
 </script>
 
 <h3>Today's highlights</h3>
 
 <div class="grid">
 	<UVIndex />
-	<WindStatus />
-	<SunriseSunset />
-	<Humidity />
-	<Visibility />
+	<WindStatus speed={data.wind.speed} deg={data.wind.deg} />
+	<SunriseSunset sunrise={data.sys.sunrise} sunset={data.sys.sunset} />
+	<Humidity percentage={data.main.humidity} />
+	<Visibility meters={data.visibility} />
 	<AirQuality />
 </div>
 
 <style>
 	.grid {
 		display: grid;
-		gap: 2em;
+		gap: 1em;
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(2, 1fr);
 	}

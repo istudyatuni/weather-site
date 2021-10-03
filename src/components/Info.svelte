@@ -15,7 +15,7 @@
 	</div>
 </div>
 
-<style type="text/css">
+<style>
 	.grid-item {
 		display: grid;
 		padding: 1.5em;

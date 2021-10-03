@@ -29,13 +29,14 @@
 	</main>
 {/await}
 
-<style type="text/css">
+<style>
 	main {
 		display: grid;
 		height: 100%;
 		grid-template-columns: 20em auto;
 	}
 	.loading {
+		padding-top: 2em;
 		font-size: 2.5em;
 	}
 </style>
