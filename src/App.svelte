@@ -32,6 +32,7 @@
 <style type="text/css">
 	main {
 		display: grid;
+		height: 100%;
 		grid-template-columns: 20em auto;
 	}
 	.loading {

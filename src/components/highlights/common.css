@@ -1,0 +1,9 @@
+.highlight-wrapper {
+	border-radius: 15px;
+	padding: 1em;
+	background-color: white;
+}
+.highlight-title {
+	color: gray;
+	margin: 0;
+}
