@@ -1,0 +1,41 @@
+<script context="module">
+	import { time } from 'src/stores/time'
+
+	import { getIcon } from 'src/utils/icons'
+	import { getWeekday } from 'src/utils/dates'
+</script>
+
+<div class="grid-item">
+	<input type="text" name="search" placeholder="Search for places ..." />
+	<img src={getIcon()} width="300" height="300" alt="" />
+	<p class="temperature">12&deg;<span>C</span></p>
+	<p class="datetime">
+		{getWeekday()}, <span class="time">{$time}</span>
+	</p>
+	<hr color="lightgray" noshade size="1" width="100%" />
+</div>
+
+<style type="text/css">
+	.grid-item {
+		display: grid;
+		padding: 1.5em;
+	}
+	input {
+		width: 70%;
+		border: none;
+	}
+	.temperature {
+		font-size: 3em;
+		margin: 0;
+	}
+	.temperature > span {
+		font-size: 0.6em;
+		vertical-align: super;
+	}
+	.datetime::first-letter {
+		text-transform: uppercase;
+	}
+	.time {
+		color: gray;
+	}
+</style>
