@@ -13,5 +13,5 @@ export const icons = [
 ]
 
 export function getIcon() {
-	return `icons/weather-icons/${icons[1]}.svg`
+	return `icons/weather-icons/tiny/${icons[1]}.svg`
 }
