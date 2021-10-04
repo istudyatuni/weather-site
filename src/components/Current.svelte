@@ -16,7 +16,7 @@
 		<input type="text" name="search" placeholder="Search for places ..." />
 		<img src={getIcon(data.weather[0].icon)} width="300" height="300" alt="" />
 		<p class="temperature">
-			{Math.round(data.main.temp - 273.16)}&deg;<span>C</span>
+			{Math.round((data.main.temp - 273.16) * 10) / 10}&deg;<span>C</span>
 		</p>
 		<p class="title-case">
 			{getWeekday()}, <span class="time">{$time}</span>
@@ -53,7 +53,6 @@
 	}
 	.temperature > span {
 		font-size: 0.6em;
-		vertical-align: super;
 	}
 	.title-case::first-letter {
 		text-transform: uppercase;
