@@ -12,31 +12,23 @@
 </script>
 
 <div class="grid-item">
-	<div>
-		<input type="text" name="search" placeholder="Search for places ..." />
-		<img src={getIcon(data.weather[0].icon)} width="100%" alt="" />
-		<p class="temperature">
-			{Math.round((data.main.temp - 273.16) * 10) / 10}&deg;<span>C</span>
-		</p>
-		<p class="title-case">
-			{getWeekday()}, <span class="time">{$time}</span>
-		</p>
-		<hr color="lightgray" noshade size="1" width="100%" />
-		<div class="description">
-			<img
-				src={image}
-				width="60"
-				height="60"
-				alt={data.weather[0].description}
-			/>
-			<p class="title-case">{data.weather[0].description}</p>
-		</div>
+	<input type="text" name="search" placeholder="Search for places ..." />
+	<img src={getIcon(data.weather[0].icon)} width="100%" alt="" />
+	<p class="temperature">
+		{Math.round((data.main.temp - 273.16) * 10) / 10}&deg;<span>C</span>
+	</p>
+	<p class="title-case">
+		{getWeekday()}, <span class="time">{$time}</span>
+	</p>
+	<hr color="lightgray" noshade size="1" width="100%" />
+	<div class="description">
+		<img src={image} width="60" height="60" alt={data.weather[0].description} />
+		<p class="title-case">{data.weather[0].description}</p>
 	</div>
 </div>
 
 <style type="text/css">
 	.grid-item {
-		display: grid;
 		padding: 1.5em;
 	}
 	input {

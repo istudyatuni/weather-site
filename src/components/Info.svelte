@@ -9,15 +9,12 @@
 </script>
 
 <div class="grid-item">
-	<div>
-		<h4 class="city">{data.name}</h4>
-		<Highlights />
-	</div>
+	<h4 class="city">{data.name}</h4>
+	<Highlights />
 </div>
 
 <style>
 	.grid-item {
-		display: grid;
 		padding: 1.5em;
 		background-color: hsl(0, 0%, 95%);
 	}
