@@ -6,6 +6,21 @@ import { getBrowserLanguage } from 'src/utils/lang'
 
 const refreshMinutes = 20
 
+/**
+ * While not used. Need for using One-call API
+ * @param  {[type]} city [description]
+ * @return {[type]}      [description]
+ */
+async function getCoords(city) {
+	const params = new URLSearchParams()
+	params.set('q', city)
+	params.set('appid', get(owm_key))
+
+	const response = await fetch(
+		'https://api.openweathermap.org/geo/1.0/direct?' + params.toString()
+	)
+}
+
 export async function loadCityWeather(city = 'moscow') {
 	const current = new Date()
 

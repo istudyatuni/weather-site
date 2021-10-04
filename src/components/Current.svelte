@@ -14,7 +14,7 @@
 <div class="grid-item">
 	<div>
 		<input type="text" name="search" placeholder="Search for places ..." />
-		<img src={getIcon(data.weather[0].icon)} width="300" height="300" alt="" />
+		<img src={getIcon(data.weather[0].icon)} width="100%" alt="" />
 		<p class="temperature">
 			{Math.round((data.main.temp - 273.16) * 10) / 10}&deg;<span>C</span>
 		</p>
