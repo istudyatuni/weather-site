@@ -1,16 +1,9 @@
 <script context="module">
-	import { onMount } from 'svelte'
-
 	import { getWindDirection } from 'src/utils/wind'
 </script>
 
 <script>
 	export let speed, deg
-
-	let rotate
-
-	// wait for bind
-	onMount(() => (rotate.style.transform = `rotate(${deg}deg)`))
 </script>
 
 <div class="highlight-wrapper">
@@ -19,9 +12,9 @@
 		<p class="highlight-value">{speed} <span>m/s</span></p>
 		<p class="m-auto">
 			<img
-				bind:this={rotate}
 				src="icons/arrow_compass.svg"
-				class="m-auto"
+				class="m-auto rotate"
+				style="--wind-dir: {deg}deg"
 				alt=""
 				width="30"
 				height="30"
@@ -41,5 +34,8 @@
 	.wind-dir {
 		font-size: 1.4em;
 		margin-left: 6px;
+	}
+	.rotate {
+		transform: rotate(var(--wind-dir));
 	}
 </style>
