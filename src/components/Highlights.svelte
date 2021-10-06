@@ -27,10 +27,23 @@
 </div>
 
 <style>
+	@media screen and (max-width: 550px) {
+		.grid {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+	@media screen and (max-width: 980px) and (min-width: 550px) {
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media screen and (min-width: 980px) {
+		.grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
 	.grid {
 		display: grid;
 		gap: 1em;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(2, 1fr);
 	}
 </style>

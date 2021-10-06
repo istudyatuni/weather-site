@@ -4,8 +4,6 @@
 	import Current from 'src/components/Current'
 	import Info from 'src/components/Info'
 
-	import { weather } from 'src/stores/weather'
-
 	import { loadConfig } from 'src/utils/config'
 	import { startTimer } from 'src/utils/time'
 </script>
@@ -30,10 +28,13 @@
 {/await}
 
 <style>
-	main {
-		display: grid;
-		height: 100%;
-		grid-template-columns: 20em auto;
+	@media screen and (max-width: 980px) {}
+	@media screen and (min-width: 980px) {
+		main {
+			display: grid;
+			height: 100%;
+			grid-template-columns: 20em auto;
+		}
 	}
 	.loading {
 		padding-top: 2em;

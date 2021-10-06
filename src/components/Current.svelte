@@ -11,15 +11,19 @@
 	$: image = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
 </script>
 
-<div class="grid-item">
+<div class="container">
 	<input type="text" name="search" placeholder="Search for places ..." />
-	<img src={getIcon(data.weather[0].icon)} width="100%" alt="" />
-	<p class="temperature">
-		{Math.round((data.main.temp - 273.16) * 10) / 10}&deg;<span>C</span>
-	</p>
-	<p class="title-case">
-		{getWeekday()}, <span class="time">{$time}</span>
-	</p>
+	<div class="line">
+		<img class="big-icon" src={getIcon(data.weather[0].icon)} alt="" />
+		<div style="margin: auto;">
+			<p class="temperature">
+				{Math.round((data.main.temp - 273.16) * 10) / 10}&deg;<span>C</span>
+			</p>
+			<p class="title-case">
+				{getWeekday()}, <span class="time">{$time}</span>
+			</p>
+		</div>
+	</div>
 	<hr color="lightgray" noshade size="1" width="100%" />
 	<div class="description">
 		<img src={image} width="60" height="60" alt={data.weather[0].description} />
@@ -28,7 +32,21 @@
 </div>
 
 <style type="text/css">
-	.grid-item {
+	@media screen and (max-width: 980px) {
+		.big-icon {
+			min-width: 120px;
+			width: 20%;
+		}
+		.line {
+			display: flex;
+		}
+	}
+	@media screen and (min-width: 980px) {
+		.big-icon {
+			width: 100%;
+		}
+	}
+	.container {
 		padding: 1.5em;
 	}
 	input {
