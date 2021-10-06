@@ -1,0 +1,1 @@
+import{time as r}from"../stores/time.js";function o(t){const e=t.getHours(),n=t.getMinutes();return`${e}:${n<10?"0"+n:n}`}function i(){return o(new Date)}export function getTimeFromUnix(t){const e=new Date(t*1e3);return o(e)}function s(){r.set(i()),setInterval(s,60*1e3)}export function startTimer(){r.set(i()),setTimeout(s,(60-new Date().getSeconds())*1e3)}

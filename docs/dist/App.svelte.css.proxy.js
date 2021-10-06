@@ -1,0 +1,1 @@
+if(typeof document!="undefined"){const t="@media screen and (max-width: 980px){}@media screen and (min-width: 980px){main.svelte-xgqqk9{display:grid;grid-template-columns:20em auto;height:100%}}",e=document.createElement("style"),d=document.createTextNode(t);e.type="text/css",e.appendChild(d),document.head.appendChild(e)}

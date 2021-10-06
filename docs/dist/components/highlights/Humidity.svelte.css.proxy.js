@@ -1,0 +1,1 @@
+if(typeof document!="undefined"){const t="span.svelte-19e1c9p{font-size:0.4em}",e=document.createElement("style"),d=document.createTextNode(t);e.type="text/css",e.appendChild(d),document.head.appendChild(e)}

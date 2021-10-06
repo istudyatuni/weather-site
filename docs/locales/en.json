@@ -1,0 +1,22 @@
+{
+	"loading": "Loading",
+	"search_city": "Search for the sity",
+	"highlights": {
+		"title": "Today's highlights",
+		"uv_index": "UV Index",
+		"wind_status": "Wind Status",
+		"sun": {
+			"title": "Sunrise & Sunset",
+			"sunrise": "Sunrise",
+			"sunset": "Sunset"
+		},
+		"humidity": "Humidity",
+		"visibility": "Visibility",
+		"air_quality": "Air Quality",
+		"measure": {
+			"m_in_s": "m/s",
+			"km": "km",
+			"m": "m"
+		}
+	}
+}

@@ -1,0 +1,1 @@
+if(typeof document!="undefined"){const d="input.svelte-pvtdbw{width:100%;border:none;background-color:hsl(0, 0%, 95%);border-radius:1em;padding-left:1em}",e=document.createElement("style"),t=document.createTextNode(d);e.type="text/css",e.appendChild(t),document.head.appendChild(e)}

@@ -1,0 +1,1 @@
+if(typeof document!="undefined"){const t=".inline.svelte-10o55na{display:flex;padding-top:1em}.m-auto.svelte-10o55na{margin:auto}.wind-dir.svelte-10o55na{font-size:1.4em;margin-left:6px}.rotate.svelte-10o55na{transform:rotate(var(--wind-dir))}",e=document.createElement("style"),n=document.createTextNode(t);e.type="text/css",e.appendChild(n),document.head.appendChild(e)}

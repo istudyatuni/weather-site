@@ -1,0 +1,1 @@
+if(typeof document!="undefined"){const t=".grid-item.svelte-1dztd33{padding:1.5em;background-color:hsl(0, 0%, 95%)}.city.svelte-1dztd33{margin-top:0}.inline.svelte-1dztd33{display:flex;justify-content:space-between}",e=document.createElement("style"),d=document.createTextNode(t);e.type="text/css",e.appendChild(d),document.head.appendChild(e)}

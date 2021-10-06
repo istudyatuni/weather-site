@@ -1,0 +1,1 @@
+if(typeof document!="undefined"){const t=".time.svelte-nipkct.svelte-nipkct{font-size:1.3em;padding-left:0.5em;font-weight:600;margin:0.5em 0}.time.svelte-nipkct>span.svelte-nipkct{color:hsl(0, 0%, 60%)}",e=document.createElement("style"),n=document.createTextNode(t);e.type="text/css",e.appendChild(n),document.head.appendChild(e)}

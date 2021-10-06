@@ -1,0 +1,1 @@
+if(typeof document!="undefined"){const t=".wrapper.svelte-9yr7a.svelte-9yr7a{padding:1em}code.svelte-9yr7a.svelte-9yr7a{margin:0;height:1em}ul.svelte-9yr7a.svelte-9yr7a{list-style-type:'- '}ul.svelte-9yr7a li.svelte-9yr7a{line-height:1}",e=document.createElement("style"),l=document.createTextNode(t);e.type="text/css",e.appendChild(l),document.head.appendChild(e)}

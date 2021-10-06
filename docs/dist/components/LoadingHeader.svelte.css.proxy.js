@@ -1,0 +1,1 @@
+if(typeof document!="undefined"){const t="p.svelte-6wnnn9{position:absolute;margin:0;padding:3px 0;top:0;width:100%;background-color:hsl(0, 0%, 90%)}",e=document.createElement("style"),n=document.createTextNode(t);e.type="text/css",e.appendChild(n),document.head.appendChild(e)}

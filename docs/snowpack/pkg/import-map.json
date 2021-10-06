@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "svelte-i18n": "./svelte-i18n.js",
+    "svelte/internal": "./svelte/internal.js",
+    "svelte/store": "./svelte/store.js"
+  }
+}
