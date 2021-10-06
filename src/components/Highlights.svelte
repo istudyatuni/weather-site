@@ -9,10 +9,26 @@
 	import './highlights/common.css'
 
 	import { weather } from 'src/stores/weather'
+
+	const na = 'N/A'
+	const defaultData = {
+		wind: {
+			speed: na,
+			deg: 0
+		},
+		sys: {
+			sunrise: na,
+			sunset: na
+		},
+		main: {
+			humidity: na
+		},
+		visibility: na
+	}
 </script>
 
 <script>
-	$: data = $weather.current.content
+	$: data = $weather?.current?.content || defaultData
 </script>
 
 <h3>Today's highlights</h3>

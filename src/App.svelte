@@ -15,17 +15,13 @@
 	}
 
 	startTimer()
-	const initial = init()
+	init()
 </script>
 
-{#await initial}
-	<center class="loading">Loading</center>
-{:then}
-	<main>
-		<Current />
-		<Info />
-	</main>
-{/await}
+<main>
+	<Current />
+	<Info />
+</main>
 
 <style>
 	@media screen and (max-width: 980px) {}
@@ -35,9 +31,5 @@
 			height: 100%;
 			grid-template-columns: 20em auto;
 		}
-	}
-	.loading {
-		padding-top: 2em;
-		font-size: 2.5em;
 	}
 </style>

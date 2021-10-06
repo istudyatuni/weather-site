@@ -4,10 +4,15 @@
 
 	import { getIcon } from 'src/utils/icons'
 	import { getWeekday } from 'src/utils/dates'
+
+	const defaultData = {
+		weather: [{ icon: '01d', description: '' }],
+		main: { temp: NaN }
+	}
 </script>
 
 <script>
-	$: data = $weather.current.content
+	$: data = $weather?.current?.content || defaultData
 	$: image = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
 </script>
 

@@ -2,10 +2,14 @@
 	import Highlights from 'src/components/Highlights'
 
 	import { weather } from 'src/stores/weather'
+
+	const defaultData = {
+		name: 'city'
+	}
 </script>
 
 <script>
-	$: data = $weather.current.content
+	$: data = $weather?.current?.content || defaultData
 </script>
 
 <div class="grid-item">
