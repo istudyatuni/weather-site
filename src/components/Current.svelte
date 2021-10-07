@@ -13,7 +13,7 @@
 
 <script>
 	$: data = $weather?.current?.content || defaultData
-	$: image = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+	$: image = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
 </script>
 
 <div class="container">
