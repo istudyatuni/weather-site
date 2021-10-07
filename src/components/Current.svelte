@@ -7,7 +7,7 @@
 
 	const defaultData = {
 		weather: [{ icon: '01d', description: '' }],
-		main: { temp: NaN }
+		main: { temp: NaN },
 	}
 </script>
 

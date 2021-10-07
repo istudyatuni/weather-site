@@ -14,16 +14,16 @@
 	const defaultData = {
 		wind: {
 			speed: na,
-			deg: 0
+			deg: 0,
 		},
 		sys: {
 			sunrise: na,
-			sunset: na
+			sunset: na,
 		},
 		main: {
-			humidity: na
+			humidity: na,
 		},
-		visibility: na
+		visibility: na,
 	}
 </script>
 

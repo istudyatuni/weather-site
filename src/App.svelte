@@ -24,7 +24,8 @@
 </main>
 
 <style>
-	@media screen and (max-width: 980px) {}
+	@media screen and (max-width: 980px) {
+	}
 	@media screen and (min-width: 980px) {
 		main {
 			display: grid;

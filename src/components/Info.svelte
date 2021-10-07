@@ -4,7 +4,7 @@
 	import { weather } from 'src/stores/weather'
 
 	const defaultData = {
-		name: 'city'
+		name: 'city',
 	}
 </script>
 
