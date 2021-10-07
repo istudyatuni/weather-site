@@ -16,15 +16,7 @@ function askKey() {
 	return key
 }
 
-export async function loadConfig() {
-	const response = await fetch('config.json')
-
-	if (response.ok) {
-		const config = await response.json()
-		owm_key.set(config.openweathermap_key)
-		return
-	}
-
+export async function initKey() {
 	let key = localStorage.getItem(storageIndex)
 	if (key) {
 		owm_key.set(key)

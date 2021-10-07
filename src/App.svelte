@@ -4,13 +4,13 @@
 	import Current from 'src/components/Current'
 	import Info from 'src/components/Info'
 
-	import { loadConfig } from 'src/utils/config'
 	import { startTimer } from 'src/utils/time'
+	import { initKey } from 'src/utils/owm'
 </script>
 
 <script>
 	async function init() {
-		await loadConfig()
+		await initKey()
 		await loadCityWeather('ivanovo')
 	}
 
