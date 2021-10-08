@@ -1,4 +1,6 @@
 <script context="module">
+	import CityInput from 'src/components/CityInput'
+
 	import { time } from 'src/stores/time'
 	import { weather } from 'src/stores/weather'
 
@@ -17,7 +19,7 @@
 </script>
 
 <div class="container">
-	<input type="text" name="search" placeholder="Search for places ..." />
+	<CityInput />
 	<div class="line">
 		<img class="big-icon" src={getIcon(data.weather[0].icon)} alt="" />
 		<div style="margin: auto;">
@@ -53,10 +55,6 @@
 	}
 	.container {
 		padding: 1.5em;
-	}
-	input {
-		width: 70%;
-		border: none;
 	}
 	.description {
 		display: flex;

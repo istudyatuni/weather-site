@@ -11,7 +11,7 @@
 <script>
 	async function init() {
 		await initKey()
-		await loadCityWeather('ivanovo')
+		await loadCityWeather()
 	}
 
 	startTimer()

@@ -1,10 +1,12 @@
 import { get } from 'svelte/store'
 import { owm_key } from 'src/stores/owm'
+import { settings } from 'src/stores/settings'
 import { weather } from 'src/stores/weather'
 
 import { getBrowserLanguage } from 'src/utils/lang'
 
 const refreshMinutes = 20
+const defaultCity = 'moscow'
 
 /**
  * While not used. Need for using One-call API
@@ -21,30 +23,34 @@ async function getCoords(city) {
 	)
 }
 
-export async function loadCityWeather(city = 'moscow') {
+export async function loadCityWeather(force = false) {
 	const current = new Date()
 
-	if (get(weather)?.current?.until > current.getTime()) {
+	if (!force && get(weather)?.current?.until > current.getTime()) {
 		return
 	}
 
 	const params = new URLSearchParams()
-	params.set('q', city)
+	params.set('q', get(settings).current_city || defaultCity)
 	params.set('appid', get(owm_key))
 	params.set('lang', getBrowserLanguage())
 
 	const response = await fetch(
 		'https://api.openweathermap.org/data/2.5/weather?' + params.toString()
 	)
+	const content = await response.json()
 
 	if (response.ok) {
-		const content = await response.json()
-
 		current.setMinutes(current.getMinutes() + refreshMinutes)
 		weather.set('current', {
 			content,
 			until: current.getTime(),
-			city,
 		})
+	} else {
+		alert(content.message)
+
+		if (content.message === 'city not found') {
+			settings.delete('current_city')
+		}
 	}
 }
