@@ -36,12 +36,15 @@ export async function loadCityWeather(city = 'moscow') {
 	const response = await fetch(
 		'https://api.openweathermap.org/data/2.5/weather?' + params.toString()
 	)
-	const content = await response.json()
 
-	current.setMinutes(current.getMinutes() + refreshMinutes)
-	weather.set('current', {
-		content,
-		until: current.getTime(),
-		city,
-	})
+	if (response.ok) {
+		const content = await response.json()
+
+		current.setMinutes(current.getMinutes() + refreshMinutes)
+		weather.set('current', {
+			content,
+			until: current.getTime(),
+			city,
+		})
+	}
 }
