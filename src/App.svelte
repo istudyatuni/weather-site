@@ -3,6 +3,7 @@
 
 	import Current from 'src/components/Current'
 	import Info from 'src/components/Info'
+	import Footer from 'src/components/Footer'
 
 	import { startTimer } from 'src/utils/time'
 	import { initKey } from 'src/utils/owm'
@@ -22,6 +23,7 @@
 	<Current />
 	<Info />
 </main>
+<Footer />
 
 <style>
 	@media screen and (max-width: 980px) {
@@ -29,7 +31,6 @@
 	@media screen and (min-width: 980px) {
 		main {
 			display: grid;
-			height: 100%;
 			grid-template-columns: 20em auto;
 		}
 	}
