@@ -18,5 +18,8 @@
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack serve",
     "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte'"
+  },
+  "dependencies": {
+    "svelte-i18n": "^3.3.13"
   }
 }

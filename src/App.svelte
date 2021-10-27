@@ -3,7 +3,12 @@
 
 	import Current from 'src/components/Current'
 	import Info from 'src/components/Info'
-	import Footer from 'src/components/Footer'
+	// import Footer from 'src/components/Footer'
+	import LoadingHeader from 'src/components/LoadingHeader'
+
+	import 'src/i18n/i18n'
+
+	import { isApiLoading } from 'src/stores/loading'
 
 	import { startTimer } from 'src/utils/time'
 	import { initKey } from 'src/utils/owm'
@@ -11,19 +16,22 @@
 
 <script>
 	async function init() {
+		isApiLoading.set(true)
 		await initKey()
 		await loadCityWeather()
+		isApiLoading.set(false)
 	}
 
 	startTimer()
 	init()
 </script>
 
+<LoadingHeader />
 <main>
 	<Current />
 	<Info />
 </main>
-<Footer />
+<!-- <Footer /> -->
 
 <style>
 	@media screen and (max-width: 980px) {
