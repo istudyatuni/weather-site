@@ -1,13 +1,19 @@
-import { register, init, getLocaleFromNavigator } from 'svelte-i18n'
+import {
+	register as register_i18n,
+	init,
+	getLocaleFromNavigator,
+} from 'svelte-i18n'
 
 async function loader(path) {
 	return (await fetch(path)).json()
 }
 
-const locales_dir = 'locales/'
+function register(locale) {
+	register_i18n(locale, () => loader(`locales/${locale}.json`))
+}
 
-register('en', () => loader(locales_dir + 'en.json'))
-register('ru', () => loader(locales_dir + 'ru.json'))
+register('en')
+register('ru')
 
 init({
 	fallbackLocale: 'en',
