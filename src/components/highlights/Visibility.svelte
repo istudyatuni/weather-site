@@ -1,4 +1,6 @@
 <script context="module">
+	import { _ } from 'svelte-i18n'
+
 	import BaseHighlight from 'src/components/highlights/BaseHighlight'
 </script>
 
@@ -6,8 +8,10 @@
 	export let meters
 </script>
 
-<BaseHighlight title="Visibility">
-	<svelte:fragment slot="value">{meters / 1000} <span>km</span></svelte:fragment>
+<BaseHighlight title={$_('highlights.visibility')}>
+	<svelte:fragment slot="value">
+		{meters / 1000} <span>km</span>
+	</svelte:fragment>
 </BaseHighlight>
 
 <style>

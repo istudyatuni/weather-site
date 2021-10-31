@@ -5,7 +5,7 @@
 		"title": "Today's highlights",
 		"uv_index": "UV Index",
 		"wind_status": "Wind Status",
-		"sunrise_sunset": {
+		"sun": {
 			"title": "Sunrise & Sunset",
 			"sunrise": "Sunrise",
 			"sunset": "Sunset"

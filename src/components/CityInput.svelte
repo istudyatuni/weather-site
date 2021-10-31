@@ -20,7 +20,7 @@
 	on:change={handleInput}
 	type="text"
 	name="search"
-	placeholder={$_("search_city")}
+	placeholder={$_('search_city')}
 />
 
 <style>

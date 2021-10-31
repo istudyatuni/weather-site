@@ -1,5 +1,8 @@
 <script context="module">
+	import { _ } from 'svelte-i18n'
+
 	import BaseHighlight from 'src/components/highlights/BaseHighlight'
+
 	import { getWindDirection } from 'src/utils/wind'
 </script>
 
@@ -7,7 +10,7 @@
 	export let speed, deg
 </script>
 
-<BaseHighlight title="Wind Status">
+<BaseHighlight title={$_('highlights.wind_status')}>
 	<div class="inline" slot="content">
 		<p class="highlight-value">{speed} <span>m/s</span></p>
 		<p class="m-auto">

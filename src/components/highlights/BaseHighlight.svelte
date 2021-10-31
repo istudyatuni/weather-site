@@ -5,9 +5,9 @@
 <div class="wrapper">
 	<p class="title">{title}</p>
 	<p class="value">
-		<slot name="value"></slot>
+		<slot name="value" />
 	</p>
-	<slot name="content"></slot>
+	<slot name="content" />
 </div>
 
 <style>

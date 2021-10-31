@@ -1,6 +1,6 @@
 <footer>
 	<a href="https://github.com/istudyatuni/weather-site">
-		<img src="icons/github.svg" alt="github" width="40px">
+		<img src="icons/github.svg" alt="github" width="40px" />
 	</a>
 </footer>
 

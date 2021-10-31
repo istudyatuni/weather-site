@@ -3,9 +3,9 @@
 	"search_city": "Поиск города",
 	"highlights": {
 		"title": "Сегодняшние параметры",
-		"uv_index": "УФ индекс",
+		"uv_index": "Индекс ультрафиолета",
 		"wind_status": "Ветер",
-		"sunrise_sunset": {
+		"sun": {
 			"title": "Восход и закат",
 			"sunrise": "Восход",
 			"sunset": "Закат"
