@@ -8,23 +8,15 @@ hash=$(git rev-parse HEAD)
 branch=$(git rev-parse --abbrev-ref HEAD)
 
 # build
-
-yarn build
-echo
+yarn build; echo
 
 # commit
-
-cp -rf public doc
-
 git checkout gh-pages
-
 trap "echo -e '\nExiting\n' && git checkout $branch" EXIT
 
 rm -rf docs
-mv doc docs
-git add -f docs
-
-echo
+mv build docs
+git add -f docs; echo
 
 git commit --amend -m "Update on $(date -R -u)
 
@@ -33,7 +25,4 @@ Commit $repo/tree/$hash, branch '$branch'"
 git checkout $branch
 
 # push
-
-echo
-
-git push -f origin gh-pages
+echo; git push -f origin gh-pages
