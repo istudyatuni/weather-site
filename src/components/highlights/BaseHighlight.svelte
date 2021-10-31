@@ -24,4 +24,7 @@
 		font-size: 2.5em;
 		margin: 0.5em;
 	}
+	.value:empty {
+		display: none;
+	}
 </style>

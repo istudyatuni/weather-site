@@ -32,6 +32,7 @@
 <style>
 	.inline {
 		display: flex;
+		padding-top: 1em;
 	}
 	.m-auto {
 		margin: auto;

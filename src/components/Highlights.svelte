@@ -48,12 +48,12 @@
 			grid-template-columns: repeat(1, 1fr);
 		}
 	}
-	@media screen and (max-width: 980px) and (min-width: 550px) {
+	@media screen and (max-width: 1300px) and (min-width: 550px) {
 		.grid {
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
-	@media screen and (min-width: 980px) {
+	@media screen and (min-width: 1300px) {
 		.grid {
 			grid-template-columns: repeat(3, 1fr);
 		}
