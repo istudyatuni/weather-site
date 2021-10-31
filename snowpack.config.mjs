@@ -26,5 +26,7 @@ export default {
 	buildOptions: {
 		htmlFragments: true,
 		baseUrl: '/weather-site',
+		// because gh-pages cannot serve _snowpack
+		metaUrlPath: 'snowpack',
 	},
 }
