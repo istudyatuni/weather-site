@@ -5,7 +5,6 @@
 
 	import Current from 'src/components/Current'
 	import Info from 'src/components/Info'
-	// import Footer from 'src/components/Footer'
 	import LoadingHeader from 'src/components/LoadingHeader'
 
 	import 'src/i18n/i18n'
@@ -34,7 +33,6 @@
 		<Current />
 		<Info />
 	</main>
-	<!-- <Footer /> -->
 {/if}
 
 <style>
