@@ -25,7 +25,7 @@
 
 <style>
 	input {
-		width: 70%;
+		width: 100%;
 		border: none;
 		background-color: hsl(0, 0%, 95%);
 		border-radius: 1em;

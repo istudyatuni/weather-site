@@ -12,7 +12,7 @@
 
 <BaseHighlight title={$_('highlights.wind_status')}>
 	<div class="inline" slot="content">
-		<p class="highlight-value">{speed} <span>m/s</span></p>
+		<p class="highlight-value">{speed} <span>{$_('highlights.measure.m_in_s')}</span></p>
 		<p class="m-auto">
 			<img
 				src="icons/arrow_compass.svg"

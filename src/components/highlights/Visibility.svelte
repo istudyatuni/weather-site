@@ -10,7 +10,7 @@
 
 <BaseHighlight title={$_('highlights.visibility')}>
 	<svelte:fragment slot="value">
-		{meters / 1000} <span>km</span>
+		{meters / 1000} <span>{$_('highlights.measure.km')}</span>
 	</svelte:fragment>
 </BaseHighlight>
 

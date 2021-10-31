@@ -12,6 +12,10 @@
 		},
 		"humidity": "Humidity",
 		"visibility": "Visibility",
-		"air_quality": "Air Quality"
+		"air_quality": "Air Quality",
+		"measure": {
+			"m_in_s": "m/s",
+			"km": "km"
+		}
 	}
 }
