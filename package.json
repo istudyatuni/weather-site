@@ -12,7 +12,8 @@
   "scripts": {
     "build": "snowpack build",
     "dev": "snowpack dev",
-    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte'"
+    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte'",
+    "deploy": "./scripts/deploy.sh"
   },
   "dependencies": {
     "svelte-i18n": "^3.3.13"
