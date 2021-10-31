@@ -1,4 +1,5 @@
 <script context="module">
+	import BaseHighlight from 'src/components/highlights/BaseHighlight'
 	import { getWindDirection } from 'src/utils/wind'
 </script>
 
@@ -6,15 +7,14 @@
 	export let speed, deg
 </script>
 
-<div class="highlight-wrapper">
-	<p class="highlight-title">Wind Status</p>
-	<div class="inline">
+<BaseHighlight title="Wind Status">
+	<div class="inline" slot="content">
 		<p class="highlight-value">{speed} <span>m/s</span></p>
 		<p class="m-auto">
 			<img
 				src="icons/arrow_compass.svg"
 				class="m-auto rotate"
-				style="--wind-dir: {deg}deg"
+				style={`--wind-dir: ${deg}deg`}
 				alt=""
 				width="30"
 				height="30"
@@ -22,7 +22,7 @@
 			<span class="wind-dir">{getWindDirection(deg)}</span>
 		</p>
 	</div>
-</div>
+</BaseHighlight>
 
 <style>
 	.inline {

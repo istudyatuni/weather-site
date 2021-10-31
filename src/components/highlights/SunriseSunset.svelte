@@ -1,4 +1,6 @@
 <script context="module">
+	import BaseHighlight from 'src/components/highlights/BaseHighlight'
+
 	import { getTimeFromUnix } from 'src/utils/time'
 </script>
 
@@ -6,11 +8,12 @@
 	export let sunrise, sunset
 </script>
 
-<div class="highlight-wrapper">
-	<p class="highlight-title">Sunrise & Sunset</p>
-	<p class="time"><span>Sunrise:</span> {getTimeFromUnix(sunrise)}</p>
-	<p class="time"><span>Sunset:</span> {getTimeFromUnix(sunset)}</p>
-</div>
+<BaseHighlight title="Sunrise & Sunset">
+	<svelte:fragment slot="content">
+		<p class="time"><span>Sunrise:</span> {getTimeFromUnix(sunrise)}</p>
+		<p class="time"><span>Sunset:</span> {getTimeFromUnix(sunset)}</p>
+	</svelte:fragment>
+</BaseHighlight>
 
 <style>
 	.time {

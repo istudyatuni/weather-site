@@ -8,8 +8,6 @@
 	import Visibility from 'src/components/highlights/Visibility'
 	import WindStatus from 'src/components/highlights/WindStatus'
 
-	import './highlights/common.css'
-
 	import { weather } from 'src/stores/weather'
 
 	const na = 'N/A'

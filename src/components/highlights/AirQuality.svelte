@@ -1,3 +1,5 @@
-<div class="highlight-wrapper">
-	<p class="highlight-title">Air Quality</p>
-</div>
+<script context="module">
+	import BaseHighlight from 'src/components/highlights/BaseHighlight'
+</script>
+
+<BaseHighlight title="Air Quality" />

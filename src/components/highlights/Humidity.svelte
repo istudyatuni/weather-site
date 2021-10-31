@@ -1,8 +1,17 @@
+<script context="module">
+	import BaseHighlight from 'src/components/highlights/BaseHighlight'
+</script>
+
 <script>
 	export let percentage
 </script>
 
-<div class="highlight-wrapper">
-	<p class="highlight-title">Humidity</p>
-	<p class="highlight-value">{percentage} <span>%</span></p>
-</div>
+<BaseHighlight title="Humidity">
+	<svelte:fragment slot="value">{percentage} <span>%</span></svelte:fragment>
+</BaseHighlight>
+
+<style>
+	span {
+		font-size: 0.4em;
+	}
+</style>
