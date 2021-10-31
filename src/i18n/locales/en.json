@@ -1,3 +1,17 @@
 {
-	"test": "Test string"
+	"loading": "Loading",
+	"search_city": "Search for the sity",
+	"highlights": {
+		"title": "Today's highlights",
+		"uv_index": "UV Index",
+		"wind_status": "Wind Status",
+		"sunrise_sunset": {
+			"title": "Sunrise & Sunset",
+			"sunrise": "Sunrise",
+			"sunset": "Sunset"
+		},
+		"humidity": "Humidity",
+		"visibility": "Visibility",
+		"air_quality": "Air Quality"
+	}
 }

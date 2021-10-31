@@ -1,4 +1,6 @@
 <script context="module">
+	import { _ } from 'svelte-i18n'
+
 	import AirQuality from 'src/components/highlights/AirQuality'
 	import Humidity from 'src/components/highlights/Humidity'
 	import SunriseSunset from 'src/components/highlights/SunriseSunset'
@@ -31,7 +33,7 @@
 	$: data = $weather?.current?.content || defaultData
 </script>
 
-<h3>Today's highlights</h3>
+<h3>{$_('highlights.title')}</h3>
 
 <div class="grid">
 	<UVIndex />

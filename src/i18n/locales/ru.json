@@ -1,3 +1,17 @@
 {
-	"test": "Тестовая строка"
+	"loading": "Загрузка",
+	"search_city": "Поиск города",
+	"highlights": {
+		"title": "Сегодняшние параметры",
+		"uv_index": "УФ индекс",
+		"wind_status": "Ветер",
+		"sunrise_sunset": {
+			"title": "Восход и закат",
+			"sunrise": "Восход",
+			"sunset": "Закат"
+		},
+		"humidity": "Влажность",
+		"visibility": "Видимость",
+		"air_quality": "Качество воздуха"
+	}
 }

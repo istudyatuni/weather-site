@@ -1,4 +1,6 @@
 <script context="module">
+	import { isLoading } from 'svelte-i18n'
+
 	import { loadCityWeather } from 'src/api/weather'
 
 	import Current from 'src/components/Current'
@@ -27,11 +29,13 @@
 </script>
 
 <LoadingHeader />
-<main>
-	<Current />
-	<Info />
-</main>
-<!-- <Footer /> -->
+{#if !$isLoading}
+	<main>
+		<Current />
+		<Info />
+	</main>
+	<!-- <Footer /> -->
+{/if}
 
 <style>
 	@media screen and (max-width: 980px) {

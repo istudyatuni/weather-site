@@ -1,4 +1,6 @@
 <script context="module">
+	import { _ } from 'svelte-i18n'
+
 	import { loadCityWeather } from 'src/api/weather'
 
 	import { settings } from 'src/stores/settings'
@@ -18,12 +20,15 @@
 	on:change={handleInput}
 	type="text"
 	name="search"
-	placeholder="Search for places ..."
+	placeholder={$_("search_city")}
 />
 
 <style>
 	input {
 		width: 70%;
 		border: none;
+		background-color: hsl(0, 0%, 95%);
+		border-radius: 1em;
+		padding-left: 1em;
 	}
 </style>
