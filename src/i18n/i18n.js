@@ -5,20 +5,27 @@ import {
 } from 'svelte-i18n'
 import { settings } from 'src/stores/settings'
 
-// need refactor when add language picker
-const currentLocale = getLocaleFromNavigator()
-settings.set('locale', currentLocale)
+import locales from './locales'
 
 async function loader(path) {
 	return (await fetch(path)).json()
 }
 
-function register(locale) {
-	register_i18n(locale, () => loader(`locales/${locale}.json`))
+function register(locale, path = undefined) {
+	register_i18n(locale, () => loader(`locales/${path || locale}.json`))
 }
 
-register('en')
-register('ru')
+function registerMany(locales) {
+	for (let key of Object.keys(locales)) {
+		register(key, locales[key])
+	}
+}
+
+// need refactor when add language picker
+const currentLocale = getLocaleFromNavigator()
+settings.set('locale', currentLocale)
+
+registerMany(locales)
 
 init({
 	fallbackLocale: 'en',
