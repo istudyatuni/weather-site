@@ -20,6 +20,9 @@ mv build docs
 
 echo $datetime > docs/version.txt
 
+# I don't want to store key in master
+cp ../key.txt docs/key.txt
+
 git add -f docs; echo
 
 git commit --amend -m "Update on $datetime
