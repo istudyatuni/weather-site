@@ -7,7 +7,7 @@
 
 <div class="wrapper">
 	{#await loadVersion() then version}
-		<pre>Version: {version}</pre>
+		<pre>Current version build time: {version}</pre>
 	{/await}
 
 	<h4><pre>LocalStorage.settings:</pre></h4>
