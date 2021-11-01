@@ -1,3 +1,6 @@
+import { get } from 'svelte/store'
+import { settings } from 'src/stores/settings'
+
 export function getBrowserLanguage() {
-	return navigator.language || navigator.userLanguage
+	return get(settings).locale
 }

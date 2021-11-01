@@ -3,6 +3,11 @@ import {
 	init,
 	getLocaleFromNavigator,
 } from 'svelte-i18n'
+import { settings } from 'src/stores/settings'
+
+// need refactor when add language picker
+const currentLocale = getLocaleFromNavigator()
+settings.set('locale', currentLocale)
 
 async function loader(path) {
 	return (await fetch(path)).json()
@@ -17,5 +22,5 @@ register('ru')
 
 init({
 	fallbackLocale: 'en',
-	initialLocale: getLocaleFromNavigator(),
+	initialLocale: currentLocale,
 })
