@@ -1,9 +1,15 @@
 <script context="module">
+	import { loadVersion } from 'src/api/debug'
+
 	import { settings } from 'src/stores/settings'
 	import { log } from 'src/stores/debug'
 </script>
 
-<div>
+<div class="wrapper">
+	{#await loadVersion() then version}
+		<pre>Version: {version}</pre>
+	{/await}
+
 	<h4><pre>LocalStorage.settings:</pre></h4>
 	<ul>
 		{#each Object.keys($settings) as key (key)}
@@ -23,6 +29,9 @@
 </div>
 
 <style>
+	.wrapper {
+		padding: 1em;
+	}
 	code {
 		margin: 0;
 		height: 1em;
