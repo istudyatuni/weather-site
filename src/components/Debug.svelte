@@ -7,23 +7,23 @@
 	<h4><pre>LocalStorage.settings:</pre></h4>
 	<ul>
 		{#each Object.keys($settings) as key (key)}
-			<li><pre>
+			<li><code>
 				{key}: {JSON.stringify($settings[key])}
-			</pre></li>
+			</code></li>
 		{/each}
 	</ul>
 	<h4><pre>Log:</pre></h4>
 	<ul>
 		{#each $log as message, i (i)}
-			<li><pre>
+			<li><code>
 				{decodeURI(message)}
-			</pre></li>
+			</code></li>
 		{/each}
 	</ul>
 </div>
 
 <style>
-	pre {
+	code {
 		margin: 0;
 		height: 1em;
 	}
