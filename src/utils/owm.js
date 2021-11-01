@@ -1,12 +1,14 @@
 import { owm_key } from 'src/stores/owm'
 
+import { noCacheHeaders as headers } from 'src/utils/constants'
+
 const storageIndex = 'owm_key'
 
 async function fetchKey() {
-	const response = await fetch('key.txt')
-	const key = await response.text()
+	const response = await fetch('key.txt', { headers })
+	const key = (await response.text()).trimEnd()
 
-	if (response.ok && key.length() === 32) {
+	if (response.ok && key.length === 32) {
 		return key
 	}
 

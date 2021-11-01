@@ -1,6 +1,4 @@
-const headers = new Headers()
-headers.append('cache-control', 'no-cache')
-headers.append('pragma', 'no-cache')
+import { noCacheHeaders as headers } from 'src/utils/constants'
 
 export async function loadVersion() {
 	return await (
