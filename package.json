@@ -12,7 +12,7 @@
   "scripts": {
     "build": "snowpack build",
     "dev": "snowpack dev",
-    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte'",
+    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte' './**/*.css' './*.mjs' './**/*.json'",
     "deploy": "./scripts/deploy.sh"
   },
   "dependencies": {
