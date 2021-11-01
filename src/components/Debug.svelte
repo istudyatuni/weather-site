@@ -13,17 +13,21 @@
 	<h4><pre>LocalStorage.settings:</pre></h4>
 	<ul>
 		{#each Object.keys($settings) as key (key)}
-			<li><code>
-				{key}: {JSON.stringify($settings[key])}
-			</code></li>
+			<li>
+				<code>
+					{key}: {JSON.stringify($settings[key])}
+				</code>
+			</li>
 		{/each}
 	</ul>
 	<h4><pre>Log:</pre></h4>
 	<ul>
 		{#each $log as message, i (i)}
-			<li><code>
-				{decodeURI(message)}
-			</code></li>
+			<li>
+				<code>
+					{decodeURI(message)}
+				</code>
+			</li>
 		{/each}
 	</ul>
 </div>
@@ -37,7 +41,7 @@
 		height: 1em;
 	}
 	ul {
-		list-style-type: "- ";
+		list-style-type: '- ';
 	}
 	ul li {
 		line-height: 1;

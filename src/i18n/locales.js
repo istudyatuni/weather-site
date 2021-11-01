@@ -5,9 +5,9 @@
  * @type {Object}
  */
 const locales = {
-	'en': 'en',
+	en: 'en',
 	'en-US': 'en',
-	'ru': 'ru',
+	ru: 'ru',
 	'ru-RU': 'ru',
 }
 
