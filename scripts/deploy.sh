@@ -23,6 +23,7 @@ git commit --amend -m "Update on $(date -R -u)
 Commit $repo/tree/$hash, branch '$branch'"
 
 git checkout $branch
+trap "echo -e '\nExiting\n'" EXIT
 
 # push
 echo; git push -f origin gh-pages
