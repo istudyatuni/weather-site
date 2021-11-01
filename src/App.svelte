@@ -4,12 +4,14 @@
 	import { loadCityWeather } from 'src/api/weather'
 
 	import Current from 'src/components/Current'
+	import Debug from 'src/components/Debug'
 	import Info from 'src/components/Info'
 	import LoadingHeader from 'src/components/LoadingHeader'
 
 	import 'src/i18n/i18n'
 
 	import { isApiLoading } from 'src/stores/loading'
+	import { settings } from 'src/stores/settings'
 
 	import { startTimer } from 'src/utils/time'
 	import { initKey } from 'src/utils/owm'
@@ -31,7 +33,11 @@
 {#if !$isLoading}
 	<main>
 		<Current />
-		<Info />
+		{#if $settings.debug}
+			<Debug />
+		{:else}
+			<Info />
+		{/if}
 	</main>
 {/if}
 

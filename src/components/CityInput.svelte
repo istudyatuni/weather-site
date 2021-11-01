@@ -8,16 +8,24 @@
 
 <script>
 	let city = ''
-	function handleInput() {
-		settings.set('current_city', city)
-		city = ''
-		loadCityWeather(true)
+	function handleInput(e) {
+		if (e.key !== 'Enter') {
+			return
+		}
+
+		if (city !== 'debug') {
+			settings.set('current_city', city)
+			city = ''
+			loadCityWeather(true)
+		} else {
+			settings.set('debug', !$settings.debug )
+		}
 	}
 </script>
 
 <input
 	bind:value={city}
-	on:change={handleInput}
+	on:keyup={handleInput}
 	type="text"
 	name="search"
 	placeholder={$_('search_city')}
