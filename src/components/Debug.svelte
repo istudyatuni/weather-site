@@ -1,6 +1,6 @@
 <script context="module">
 	import { settings } from 'src/stores/settings'
-	import { log } from 'src/stores/log'
+	import { log } from 'src/stores/debug'
 </script>
 
 <div>
@@ -26,5 +26,11 @@
 	code {
 		margin: 0;
 		height: 1em;
+	}
+	ul {
+		list-style-type: "- ";
+	}
+	ul li {
+		line-height: 1;
 	}
 </style>

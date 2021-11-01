@@ -1,9 +1,8 @@
 import { get } from 'svelte/store'
-import { log } from 'src/stores/log'
-import { settings } from 'src/stores/settings'
+import { debug, log } from 'src/stores/debug'
 
 export function logger(message) {
-	if(get(settings).debug) {
+	if(get(debug)) {
 		log.set([...get(log), message])
 	}
 }

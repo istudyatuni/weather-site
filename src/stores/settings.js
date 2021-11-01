@@ -5,6 +5,5 @@ import { storageKeyValueStore } from 'src/stores/storageKeyValueStore'
  * Keys:
  *   - current_city
  *   - locale
- *   - debug
  */
 export const settings = storageKeyValueStore('settings', localStorage)

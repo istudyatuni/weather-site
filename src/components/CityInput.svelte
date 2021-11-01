@@ -3,6 +3,7 @@
 
 	import { loadCityWeather } from 'src/api/weather'
 
+	import { debug } from 'src/stores/debug'
 	import { settings } from 'src/stores/settings'
 </script>
 
@@ -18,7 +19,7 @@
 			city = ''
 			loadCityWeather(true)
 		} else {
-			settings.set('debug', !$settings.debug )
+			debug.set(!$debug)
 		}
 	}
 </script>
