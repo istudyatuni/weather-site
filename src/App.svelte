@@ -48,6 +48,7 @@
 		main {
 			display: grid;
 			grid-template-columns: 20em auto;
+			height: 100%;
 		}
 	}
 </style>
