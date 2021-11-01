@@ -10,7 +10,7 @@
 <script>
 	let city = ''
 	function handleInput(e) {
-		if (e.key !== 'Enter') {
+		if (e.key !== 'Enter' || city === '') {
 			return
 		}
 
