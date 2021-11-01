@@ -4,6 +4,7 @@ import { settings } from 'src/stores/settings'
 import { weather } from 'src/stores/weather'
 
 import { getBrowserLanguage } from 'src/utils/lang'
+import { logger } from 'src/utils/log'
 
 const refreshMinutes = 20
 const defaultCity = 'moscow'
@@ -39,6 +40,7 @@ export async function loadCityWeather(force = false) {
 	const response = await fetch(
 		'https://api.openweathermap.org/data/2.5/weather?' + params.toString()
 	)
+	logger(response.url)
 	const content = await response.json()
 
 	if (response.ok) {
