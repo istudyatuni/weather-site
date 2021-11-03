@@ -2,6 +2,7 @@
 	import { isLoading } from 'svelte-i18n'
 
 	import { loadCityWeather } from 'src/api/weather'
+	import { count } from 'src/api/visit-counter'
 
 	import Current from 'src/components/Current'
 	import Debug from 'src/components/Debug'
@@ -23,6 +24,7 @@
 		await initKey()
 		await loadCityWeather()
 		isApiLoading.set(false)
+		setTimeout(count, 2000)
 	}
 
 	startTimer()

@@ -6,7 +6,7 @@ const storageIndex = 'owm_key'
 
 async function fetchKey() {
 	const response = await fetch('key.txt', { headers })
-	const key = (await response.text()).trimEnd()
+	const key = (await response.text()).slice(0, 32)
 
 	if (response.ok && key.length === 32) {
 		return key
@@ -18,7 +18,7 @@ async function fetchKey() {
 function askKey() {
 	const key = prompt('No openweathermap key found. Please enter it')
 	if (!key) {
-		alert('The key is not entered. Reload the page to try again')
+		alert('The key is not entered. Reload the page and try again')
 		return null
 	}
 
