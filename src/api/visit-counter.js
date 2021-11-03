@@ -3,25 +3,27 @@ async function fetchToken() {
 	return (await response.text()).slice(33, 79)
 }
 
+const code = (t) => '`' + t + '`'
+
 async function sendMessage() {
-	const text = `Visit
-	System: ${navigator.platform}
-	Lang: ${navigator.language}
-	UserAgent: ${navigator.userAgent}
-	Referrer: ${document.referrer}`
+	const text = [
+		'*Visit*',
+		'System: ' + code(navigator.platform),
+		'Lang: ' + code(navigator.language),
+		'UserAgent: ' + code(navigator.userAgent),
+		'Referrer: ' + code(document.referrer),
+	].join('\n')
 
 	const params = new URLSearchParams({
 		chat_id: '-1001738728136',
 		text,
+		parse_mode: 'markdown',
 	})
 
 	const response = await fetch(
 		`https://api.telegram.org/bot${await fetchToken()}/sendMessage?${params.toString()}`
 	)
-	if (response.ok) {
-		return true
-	}
-	return false
+	return response.ok
 }
 
 async function work() {
@@ -39,9 +41,9 @@ async function work() {
 	}
 }
 
-export function count() {
+export async function count() {
 	try {
-		work()
+		await work()
 	} catch (e) {
 		console.error(e)
 	}
