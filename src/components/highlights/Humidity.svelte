@@ -9,7 +9,9 @@
 </script>
 
 <BaseHighlight title={$_('highlights.humidity')}>
-	<svelte:fragment slot="value">{percentage} <span>%</span></svelte:fragment>
+	<svelte:fragment slot="value">
+		{percentage ?? '--'} <span>%</span>
+	</svelte:fragment>
 </BaseHighlight>
 
 <style>

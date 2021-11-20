@@ -6,11 +6,22 @@
 
 <script>
 	export let meters
+	let value,
+		km = 'k'
+
+	$: if (meters < 1000) {
+		value = meters
+		km = ''
+	} else if (meters >= 1000) {
+		value = meters / 1000
+	} else {
+		/* meters is undefined */
+	}
 </script>
 
 <BaseHighlight title={$_('highlights.visibility')}>
 	<svelte:fragment slot="value">
-		{meters / 1000} <span>{$_('highlights.measure.km')}</span>
+		{value ?? '-.-'} <span>{$_(`highlights.measure.${km}m`)}</span>
 	</svelte:fragment>
 </BaseHighlight>
 

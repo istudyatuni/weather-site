@@ -9,35 +9,19 @@
 	import WindStatus from 'src/components/highlights/WindStatus'
 
 	import { weather } from 'src/stores/weather'
-
-	const na = 'N/A'
-	const defaultData = {
-		wind: {
-			speed: na,
-			deg: 0,
-		},
-		sys: {
-			sunrise: na,
-			sunset: na,
-		},
-		main: {
-			humidity: na,
-		},
-		visibility: na,
-	}
 </script>
 
 <script>
-	$: data = $weather?.current?.content || defaultData
+	$: data = $weather?.current?.content
 </script>
 
 <h3>{$_('highlights.title')}</h3>
 
 <div class="grid">
 	<UVIndex />
-	<WindStatus speed={data.wind.speed} deg={data.wind.deg} />
-	<SunriseSunset sunrise={data.sys.sunrise} sunset={data.sys.sunset} />
-	<Humidity percentage={data.main.humidity} />
+	<WindStatus speed={data.wind?.speed} deg={data.wind?.deg} />
+	<SunriseSunset sunrise={data.sys?.sunrise} sunset={data.sys?.sunset} />
+	<Humidity percentage={data.main?.humidity} />
 	<Visibility meters={data.visibility} />
 	<AirQuality />
 </div>

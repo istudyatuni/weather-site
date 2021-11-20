@@ -13,7 +13,7 @@
 <BaseHighlight title={$_('highlights.wind_status')}>
 	<div class="inline" slot="content">
 		<p class="highlight-value">
-			{speed} <span>{$_('highlights.measure.m_in_s')}</span>
+			{speed ?? '-.-'} <span>{$_('highlights.measure.m_in_s')}</span>
 		</p>
 		<p class="m-auto">
 			<img
@@ -24,7 +24,9 @@
 				width="30"
 				height="30"
 			/>
-			<span class="wind-dir">{getWindDirection(deg)}</span>
+			<span class="wind-dir">
+				{deg ? getWindDirection(deg) : '--'}
+			</span>
 		</p>
 	</div>
 </BaseHighlight>

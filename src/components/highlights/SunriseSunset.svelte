@@ -14,11 +14,11 @@
 	<svelte:fragment slot="content">
 		<p class="time">
 			<span>{$_('highlights.sun.sunrise')}:</span>
-			{getTimeFromUnix(sunrise)}
+			{sunrise ? getTimeFromUnix(sunrise) : '--:--'}
 		</p>
 		<p class="time">
 			<span>{$_('highlights.sun.sunset')}:</span>
-			{getTimeFromUnix(sunset)}
+			{sunset ? getTimeFromUnix(sunset) : '--:--'}
 		</p>
 	</svelte:fragment>
 </BaseHighlight>

@@ -9,7 +9,6 @@
 
 	const defaultData = {
 		weather: [{ icon: '01d', description: '' }],
-		main: { temp: NaN },
 	}
 </script>
 
@@ -24,7 +23,10 @@
 		<img class="big-icon" src={getIcon(data.weather[0].icon)} alt="" />
 		<div style="margin: auto;">
 			<p class="temperature">
-				{Math.round((data.main.temp - 273.16) * 10) / 10}&deg;<span>C</span>
+				{data?.main?.temp
+					? Math.round((data.main.temp - 273.16) * 10) / 10
+					: '-.-'}
+				&deg;<span>C</span>
 			</p>
 			<p class="title-case">
 				{getWeekday()}, <span class="time">{$time}</span>
