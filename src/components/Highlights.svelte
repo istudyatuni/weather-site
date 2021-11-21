@@ -12,7 +12,7 @@
 </script>
 
 <script>
-	$: data = $weather?.current?.content
+	$: data = $weather?.current?.content || {}
 </script>
 
 <h3>{$_('highlights.title')}</h3>
