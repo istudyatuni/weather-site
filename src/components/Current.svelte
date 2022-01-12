@@ -10,6 +10,9 @@
 	const defaultData = {
 		weather: [{ icon: '01d', description: '' }],
 	}
+	function roundKelvinTemp(temp) {
+		return Math.round((temp - 273.16) * 10) / 10
+	}
 </script>
 
 <script>
@@ -23,9 +26,7 @@
 		<img class="big-icon" src={getIcon(data.weather[0].icon)} alt="" />
 		<div style="margin: auto;">
 			<p class="temperature">
-				{data?.main?.temp
-					? Math.round((data.main.temp - 273.16) * 10) / 10
-					: '-.-'}
+				{data?.main?.temp ? roundKelvinTemp(data.main.temp) : '-.-'}
 				&deg;<span>C</span>
 			</p>
 			<p class="title-case">

@@ -18,8 +18,8 @@
 		<p class="m-auto">
 			<img
 				src="icons/arrow_compass.svg"
-				class="m-auto rotate"
-				style={`--wind-dir: ${deg}deg`}
+				class="m-auto"
+				style:transform={`rotate(${deg}deg)`}
 				alt=""
 				width="30"
 				height="30"
@@ -42,8 +42,5 @@
 	.wind-dir {
 		font-size: 1.4em;
 		margin-left: 6px;
-	}
-	.rotate {
-		transform: rotate(var(--wind-dir));
 	}
 </style>
