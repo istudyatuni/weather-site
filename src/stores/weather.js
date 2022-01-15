@@ -1,3 +1,3 @@
-import { storageKeyValueStore } from 'src/stores/storageKeyValueStore'
+import { sessionStore } from 'svelte-storages'
 
-export const weather = storageKeyValueStore('weather', sessionStorage)
+export const weather = sessionStore('weather')

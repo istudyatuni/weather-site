@@ -1,9 +1,11 @@
-import { storageKeyValueStore } from 'src/stores/storageKeyValueStore'
+import { localStore } from 'svelte-storages'
 
 /**
  * Settings store
+ *
  * Keys:
- *   - current_city
- *   - locale
+ *
+ *   - `current_city`
+ *   - `locale`
  */
-export const settings = storageKeyValueStore('settings', localStorage)
+export const settings = localStore('settings')

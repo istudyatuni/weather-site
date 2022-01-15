@@ -1,3 +1,3 @@
-import { storageKeyValueStore } from 'src/stores/storageKeyValueStore'
+import { localStore } from 'svelte-storages'
 
-export const cities = storageKeyValueStore('cities', localStorage)
+export const cities = localStore('cities')
