@@ -21,7 +21,7 @@
 </script>
 
 <script>
-	async function init() {
+	async function initApi() {
 		isApiLoading.set(true)
 		await initKey()
 		await loadCityWeather()
@@ -29,15 +29,35 @@
 		setTimeout(count, 2000)
 	}
 
+	function darkMedia() {
+		return (
+			window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')
+		)
+	}
+
+	let isPreferenceDark = darkMedia() && darkMedia().matches
+
+	function initTheme() {
+		darkMedia() &&
+			darkMedia().addEventListener('change', (e) => {
+				isPreferenceDark = e.matches
+			})
+	}
+
 	router.mode.memory()
 
 	startTimer()
-	init()
+	initApi()
+	initTheme()
+
+	$: isDarkTheme =
+		$settings.theme === 'dark' ||
+		($settings.theme === 'system' && isPreferenceDark)
 </script>
 
 <LoadingHeader />
 {#if !$isLoading}
-	<main class:dark={$settings.theme === 'dark'}>
+	<main class:dark={isDarkTheme}>
 		<Current />
 		{#if $debug}
 			<Debug />
