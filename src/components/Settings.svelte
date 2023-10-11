@@ -17,7 +17,7 @@
 	/**
 	 * @param  {InputEvent} e [description]
 	 */
-	function selectHandler(e) {
+	function themeSelectHandler(e) {
 		settings.set('theme', e.target.value)
 	}
 </script>
@@ -28,6 +28,6 @@
 	<Select
 		title={$_('settings.theme.title')}
 		options={themeSelectValues}
-		on:input={selectHandler}
+		on:input={themeSelectHandler}
 		default_value={default_theme} />
 </div>

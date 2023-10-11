@@ -14,10 +14,10 @@
 	.wrapper {
 		border-radius: 15px;
 		padding: 1em;
-		background-color: white;
+		background-color: var(--main-bg-color);
 	}
 	.title {
-		color: gray;
+		color: var(--second-fg-color);
 		margin: 0;
 	}
 	.value {

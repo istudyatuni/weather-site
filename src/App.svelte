@@ -13,6 +13,7 @@
 	import 'src/i18n/i18n'
 
 	import { debug } from 'src/stores/debug'
+	import { settings } from 'src/stores/settings'
 	import { isApiLoading } from 'src/stores/loading'
 
 	import { startTimer } from 'src/utils/time'
@@ -36,7 +37,7 @@
 
 <LoadingHeader />
 {#if !$isLoading}
-	<main>
+	<main class:dark={$settings.theme === 'dark'}>
 		<Current />
 		{#if $debug}
 			<Debug />
@@ -55,5 +56,24 @@
 			grid-template-columns: 20em auto;
 			height: 100%;
 		}
+	}
+
+	main {
+		background-color: var(--main-bg-color);
+		color: var(--main-fg-color);
+	}
+
+	/* Palette: https://colorhunt.co/palette/35394126282b5f85db90b8f8 */
+	main {
+		--main-bg-color: white;
+		--second-bg-color: hsl(0, 0%, 95%);
+		--main-fg-color: black;
+		--second-fg-color: gray;
+	}
+	main:global(.dark) {
+		--main-bg-color: #26282b;
+		--second-bg-color: #353941;
+		--main-fg-color: #90b8f8;
+		--second-fg-color: darkgray;
 	}
 </style>

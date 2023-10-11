@@ -16,6 +16,7 @@
 		padding: 3px 0;
 		top: 0;
 		width: 100%;
-		background-color: hsl(0, 0%, 90%);
+		background-color: var(--main-bg-color);
+		color: var(--second-fg-color);
 	}
 </style>

@@ -58,7 +58,7 @@
 <style>
 	.grid-item {
 		padding: 1.5em;
-		background-color: hsl(0, 0%, 95%);
+		background-color: var(--second-bg-color);
 	}
 	.city {
 		margin-top: 0;
@@ -72,6 +72,6 @@
 		margin: 0 0.4em;
 	}
 	.settings {
-		color: darkgray;
+		color: var(--second-fg-color);
 	}
 </style>

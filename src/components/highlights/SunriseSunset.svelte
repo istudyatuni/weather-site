@@ -31,6 +31,6 @@
 		margin: 0.5em 0;
 	}
 	.time > span {
-		color: hsl(0, 0%, 60%);
+		color: var(--second-fg-color);
 	}
 </style>

@@ -30,11 +30,11 @@
 				&deg;<span>C</span>
 			</p>
 			<p class="title-case">
-				{getWeekday()}, <span class="time">{$time}</span>
+				{getWeekday()}<span class="time">, {$time}</span>
 			</p>
 		</div>
 	</div>
-	<hr color="lightgray" noshade size="1" width="100%" />
+	<hr class="separator" noshade size="1" width="100%" />
 	<div class="description">
 		<img src={image} width="60" height="60" alt={data.weather[0].description} />
 		<p class="title-case">{data.weather[0].description}</p>
@@ -74,6 +74,9 @@
 		text-transform: uppercase;
 	}
 	.time {
-		color: gray;
+		color: var(--second-fg-color);
+	}
+	.separator {
+		color: var(--second-bg-color);
 	}
 </style>
