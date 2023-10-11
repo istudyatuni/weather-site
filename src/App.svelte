@@ -61,22 +61,26 @@
 			document.body.classList.remove('dark')
 		}
 	}
+	$: {
+		if ($debug) {
+			router.goto('/debug')
+		} else {
+			router.goto('/')
+		}
+	}
 </script>
 
 <LoadingHeader />
 {#if !$isLoading}
 	<main>
 		<Current />
-		{#if $debug}
-			<Debug />
-		{:else}
-			<Main>
-				<Route>
-					<Route path="/info" fallback><Highlights /></Route>
-					<Route path="/settings"><Settings /></Route>
-				</Route>
-			</Main>
-		{/if}
+		<Main>
+			<Route>
+				<Route path="/info" fallback><Highlights /></Route>
+				<Route path="/settings"><Settings /></Route>
+				<Route path="/debug"><Debug /></Route>
+			</Route>
+		</Main>
 	</main>
 {/if}
 

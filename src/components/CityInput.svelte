@@ -36,6 +36,7 @@
 		width: 100%;
 		border: none;
 		background-color: var(--second-bg-color);
+		color: var(--second-fg-color);
 		border-radius: 1em;
 		padding-left: 1em;
 	}
