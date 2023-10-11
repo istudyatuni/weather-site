@@ -1,0 +1,33 @@
+name: Build and deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: github-pages
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - name: Build
+        shell: bash
+        env:
+          owm: ${{ secrets.OWM_KEY }}
+          tg_token: ${{ secrets.TG_TOKEN }}
+        run: |
+          yarn build
+          echo $owm > build/key.txt
+          echo $tg_token >> build/key.txt
+          echo "$(date -R -u)" > build/version.txt
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          force_orphan: true
