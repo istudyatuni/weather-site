@@ -9,21 +9,17 @@
 	const defaultData = {
 		name: 'city',
 	}
-
-	const settingsToggleRoutes = [
-		{
-			from: '/',
-			to: '/settings',
-		},
-		{
-			from: '/settings',
-			to: '/',
-		},
-	]
 </script>
 
 <script>
 	$: data = $weather?.current?.content || defaultData
+
+	// hack
+	// it works, but have strange behaviour:
+	//
+	// <a href="/" /> will open <Route path="/settings" />
+	// and vice versa
+	let settingsNotOpened = true
 </script>
 
 <div class="grid-item">
@@ -31,13 +27,13 @@
 		<h4 class="city">{data.name}</h4>
 
 		<div class="inline">
-			{#each settingsToggleRoutes as { from, to }}
-				<Route path={from}>
-					<a href={to} class="settings" alt="settings toggle">
-						<SettingsIcon />
-					</a>
-				</Route>
-			{/each}
+			<a
+				href={settingsNotOpened ? '/' : '/settings'}
+				class="settings"
+				alt="settings toggle"
+				on:click={() => (settingsNotOpened = !settingsNotOpened)}>
+				<SettingsIcon />
+			</a>
 
 			<a
 				href="https://github.com/istudyatuni/weather-site"
