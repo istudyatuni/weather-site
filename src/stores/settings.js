@@ -7,5 +7,8 @@ import { localStore } from 'svelte-storages'
  *
  *   - `current_city`
  *   - `locale`
+ *   - `theme`: one of 'light', 'dark', 'system'
  */
-export const settings = localStore('settings')
+export const settings = localStore('settings', {
+	theme: 'system',
+})

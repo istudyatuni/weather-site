@@ -17,10 +17,12 @@ export function getTimeFromUnix(unix) {
 
 function refreshTimer() {
 	time.set(getCurrentTime())
-	setInterval(refreshTimer, 60 * 1000)
 }
 
 export function startTimer() {
 	time.set(getCurrentTime())
-	setTimeout(refreshTimer, (60 - new Date().getSeconds()) * 1000)
+	setTimeout(() => {
+		refreshTimer()
+		setInterval(refreshTimer, 60 * 1000)
+	}, (60 - new Date().getSeconds()) * 1000)
 }

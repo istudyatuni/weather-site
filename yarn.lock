@@ -3203,6 +3203,11 @@ timers-ext@^0.1.7:
     es5-ext "~0.10.46"
     next-tick "1"
 
+tinro@^0.6.12:
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/tinro/-/tinro-0.6.12.tgz#f07c7212720d1b8e4bce6b22c1e65b0aabe47f69"
+  integrity sha512-YYLh0a21GXXpS66ilZbywfXcPTKQQ+bv3tihoqKqSFQP6/F11N7ZmtRbFWcyZXXPFRSzNxmPJBB8ZhP0GkoS0Q==
+
 tiny-glob@^0.2.9:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/tiny-glob/-/tiny-glob-0.2.9.tgz#2212d441ac17928033b110f8b3640683129d31e2"

@@ -17,6 +17,7 @@
     "deploy": "./scripts/deploy.sh"
   },
   "dependencies": {
-    "svelte-i18n": "^3.3.13"
+    "svelte-i18n": "^3.3.13",
+    "tinro": "^0.6.12"
   }
 }

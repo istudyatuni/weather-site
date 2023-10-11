@@ -1,5 +1,6 @@
 <script context="module">
 	import { isLoading } from 'svelte-i18n'
+	import { router } from 'tinro'
 
 	import { loadCityWeather } from 'src/api/weather'
 	import { count } from 'src/api/visit-counter'
@@ -26,6 +27,8 @@
 		isApiLoading.set(false)
 		setTimeout(count, 2000)
 	}
+
+	router.mode.memory()
 
 	startTimer()
 	init()

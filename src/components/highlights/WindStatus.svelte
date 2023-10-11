@@ -22,8 +22,7 @@
 				style:transform={`rotate(${deg}deg)`}
 				alt=""
 				width="30"
-				height="30"
-			/>
+				height="30" />
 			<span class="wind-dir">
 				{deg ? getWindDirection(deg) : '--'}
 			</span>
