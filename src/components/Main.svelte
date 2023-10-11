@@ -1,9 +1,6 @@
 <script context="module">
 	import { Route } from 'tinro'
 
-	import Highlights from 'src/components/Highlights'
-	import Settings from 'src/components/Settings'
-
 	import { default as SettingsIcon } from 'src/components/icons/Settings'
 	import { default as GithubIcon } from 'src/components/icons/Github'
 
@@ -34,15 +31,13 @@
 		<h4 class="city">{data.name}</h4>
 
 		<div class="inline">
-			<Route>
-				{#each settingsToggleRoutes as { from, to }}
-					<Route path={to}>
-						<a href={from} class="settings" alt="settings toggle">
-							<SettingsIcon />
-						</a>
-					</Route>
-				{/each}
-			</Route>
+			{#each settingsToggleRoutes as { from, to }}
+				<Route path={to}>
+					<a href={from} class="settings" alt="settings toggle">
+						<SettingsIcon />
+					</a>
+				</Route>
+			{/each}
 
 			<a
 				href="https://github.com/istudyatuni/weather-site"
@@ -53,10 +48,7 @@
 		</div>
 	</div>
 
-	<Route>
-		<Route path="/info" fallback><Highlights /></Route>
-		<Route path="/settings"><Settings /></Route>
-	</Route>
+	<slot />
 </div>
 
 <style>

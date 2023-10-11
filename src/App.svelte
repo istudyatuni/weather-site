@@ -1,14 +1,16 @@
 <script context="module">
 	import { isLoading } from 'svelte-i18n'
-	import { router } from 'tinro'
+	import { Route, router } from 'tinro'
 
 	import { loadCityWeather } from 'src/api/weather'
 	import { count } from 'src/api/visit-counter'
 
 	import Current from 'src/components/Current'
 	import Debug from 'src/components/Debug'
-	import Info from 'src/components/Info'
+	import Highlights from 'src/components/Highlights'
 	import LoadingHeader from 'src/components/LoadingHeader'
+	import Main from 'src/components/Main'
+	import Settings from 'src/components/Settings'
 
 	import 'src/i18n/i18n'
 
@@ -68,7 +70,12 @@
 		{#if $debug}
 			<Debug />
 		{:else}
-			<Info />
+			<Main>
+				<Route>
+					<Route path="/info" fallback><Highlights /></Route>
+					<Route path="/settings"><Settings /></Route>
+				</Route>
+			</Main>
 		{/if}
 	</main>
 {/if}
