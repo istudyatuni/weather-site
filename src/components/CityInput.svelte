@@ -15,7 +15,7 @@
 		}
 
 		if (city !== 'debug') {
-			settings.set('current_city', city)
+			settings.set('current_city', city.trim())
 			city = ''
 			loadCityWeather(true)
 		} else {
