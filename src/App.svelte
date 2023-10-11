@@ -5,12 +5,12 @@
 	import { loadCityWeather } from 'src/api/weather'
 	import { count } from 'src/api/visit-counter'
 
-	import Current from 'src/components/Current'
-	import Debug from 'src/components/Debug'
-	import Highlights from 'src/components/Highlights'
-	import LoadingHeader from 'src/components/LoadingHeader'
-	import Main from 'src/components/Main'
-	import Settings from 'src/components/Settings'
+	import Current from 'src/components/Current.svelte'
+	import Debug from 'src/components/Debug.svelte'
+	import Highlights from 'src/components/Highlights.svelte'
+	import LoadingHeader from 'src/components/LoadingHeader.svelte'
+	import Main from 'src/components/Main.svelte'
+	import Settings from 'src/components/Settings.svelte'
 
 	import 'src/i18n/i18n'
 

@@ -1,8 +1,8 @@
 <script context="module">
 	import { Route } from 'tinro'
 
-	import { default as SettingsIcon } from 'src/components/icons/Settings'
-	import { default as GithubIcon } from 'src/components/icons/Github'
+	import { default as SettingsIcon } from 'src/components/icons/Settings.svelte'
+	import { default as GithubIcon } from 'src/components/icons/Github.svelte'
 
 	import { weather } from 'src/stores/weather'
 
@@ -32,8 +32,8 @@
 
 		<div class="inline">
 			{#each settingsToggleRoutes as { from, to }}
-				<Route path={to}>
-					<a href={from} class="settings" alt="settings toggle">
+				<Route path={from}>
+					<a href={to} class="settings" alt="settings toggle">
 						<SettingsIcon />
 					</a>
 				</Route>

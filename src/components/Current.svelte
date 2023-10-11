@@ -1,5 +1,5 @@
 <script context="module">
-	import CityInput from 'src/components/CityInput'
+	import CityInput from 'src/components/CityInput.svelte'
 
 	import { time } from 'src/stores/time'
 	import { weather } from 'src/stores/weather'

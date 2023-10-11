@@ -1,12 +1,12 @@
 <script context="module">
 	import { _ } from 'svelte-i18n'
 
-	import AirQuality from 'src/components/highlights/AirQuality'
-	import Humidity from 'src/components/highlights/Humidity'
-	import SunriseSunset from 'src/components/highlights/SunriseSunset'
-	import UVIndex from 'src/components/highlights/UVIndex'
-	import Visibility from 'src/components/highlights/Visibility'
-	import WindStatus from 'src/components/highlights/WindStatus'
+	import AirQuality from 'src/components/highlights/AirQuality.svelte'
+	import Humidity from 'src/components/highlights/Humidity.svelte'
+	import SunriseSunset from 'src/components/highlights/SunriseSunset.svelte'
+	import UVIndex from 'src/components/highlights/UVIndex.svelte'
+	import Visibility from 'src/components/highlights/Visibility.svelte'
+	import WindStatus from 'src/components/highlights/WindStatus.svelte'
 
 	import { weather } from 'src/stores/weather'
 </script>
