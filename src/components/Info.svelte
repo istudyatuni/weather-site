@@ -34,13 +34,15 @@
 		<h4 class="city">{data.name}</h4>
 
 		<div class="inline">
-			{#each settingsToggleRoutes as { from, to }}
-				<Route path={to}>
-					<a href={from} class="settings" alt="settings toggle">
-						<SettingsIcon />
-					</a>
-				</Route>
-			{/each}
+			<Route>
+				{#each settingsToggleRoutes as { from, to }}
+					<Route path={to}>
+						<a href={from} class="settings" alt="settings toggle">
+							<SettingsIcon />
+						</a>
+					</Route>
+				{/each}
+			</Route>
 
 			<a
 				href="https://github.com/istudyatuni/weather-site"
@@ -51,8 +53,10 @@
 		</div>
 	</div>
 
-	<Route path="/" fallback><Highlights /></Route>
-	<Route path="/settings"><Settings /></Route>
+	<Route>
+		<Route path="/info" fallback><Highlights /></Route>
+		<Route path="/settings"><Settings /></Route>
+	</Route>
 </div>
 
 <style>
