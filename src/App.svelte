@@ -45,6 +45,7 @@
 	}
 
 	router.mode.memory()
+	router.base('/weather-site')
 
 	startTimer()
 	initApi()
@@ -53,11 +54,18 @@
 	$: isDarkTheme =
 		$settings.theme === 'dark' ||
 		($settings.theme === 'system' && isPreferenceDark)
+	$: {
+		if (isDarkTheme) {
+			document.body.classList.add('dark')
+		} else {
+			document.body.classList.remove('dark')
+		}
+	}
 </script>
 
 <LoadingHeader />
 {#if !$isLoading}
-	<main class:dark={isDarkTheme}>
+	<main>
 		<Current />
 		{#if $debug}
 			<Debug />
@@ -76,24 +84,5 @@
 			grid-template-columns: 20em auto;
 			height: 100%;
 		}
-	}
-
-	main {
-		background-color: var(--main-bg-color);
-		color: var(--main-fg-color);
-	}
-
-	/* Palette: https://colorhunt.co/palette/35394126282b5f85db90b8f8 */
-	main {
-		--main-bg-color: white;
-		--second-bg-color: hsl(0, 0%, 95%);
-		--main-fg-color: black;
-		--second-fg-color: gray;
-	}
-	main:global(.dark) {
-		--main-bg-color: #26282b;
-		--second-bg-color: #353941;
-		--main-fg-color: #90b8f8;
-		--second-fg-color: darkgray;
 	}
 </style>
