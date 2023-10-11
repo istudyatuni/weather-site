@@ -30,9 +30,7 @@
 	}
 
 	function darkMedia() {
-		return (
-			window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')
-		)
+		return window?.matchMedia('(prefers-color-scheme: dark)')
 	}
 
 	let isPreferenceDark = darkMedia() && darkMedia().matches

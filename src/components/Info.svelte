@@ -51,7 +51,7 @@
 		</div>
 	</div>
 
-	<Route path="/"><Highlights /></Route>
+	<Route path="/" fallback><Highlights /></Route>
 	<Route path="/settings"><Settings /></Route>
 </div>
 
