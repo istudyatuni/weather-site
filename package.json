@@ -6,14 +6,14 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.4.6",
     "prettier": "^2.5.1",
-    "prettier-plugin-svelte": "^2.5.1",
-    "svelte": "^3.46.1",
+    "prettier-plugin-svelte": "^2.10.1",
+    "svelte": "^4.0.0",
     "vite": "^4.4.11"
   },
   "scripts": {
     "build": "vite build",
     "dev": "vite",
-    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte' './**/*.css' './*.mjs' './**/*.json'"
+    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte' './**/*.css' './**/*.json'"
   },
   "dependencies": {
     "svelte-i18n": "^3.3.13",

@@ -24,9 +24,11 @@ const config = defineConfig({
 		sourcemap: true,
 		minify: true,
 		outDir: 'build',
-		// target: 'esnext',
 	},
 	base: '/weather-site/',
+	optimizeDeps: {
+		exclude: ['tinro'],
+	},
 })
 
 export default config
