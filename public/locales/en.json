@@ -21,11 +21,15 @@
 	},
 	"settings": {
 		"title": "Settings",
+		"reload_required": "Please reload page",
 		"theme": {
 			"title": "Theme",
 			"light": "Light",
 			"dark": "Dark",
 			"system": "System"
+		},
+		"language": {
+			"title": "Language"
 		}
 	}
 }

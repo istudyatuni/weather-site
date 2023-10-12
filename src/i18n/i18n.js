@@ -1,33 +1,40 @@
+import { get } from 'svelte/store'
+
 import {
 	register as register_i18n,
 	init,
-	getLocaleFromNavigator,
+	getLocaleFromNavigator as getUserLocale,
 } from 'svelte-i18n'
 import { settings } from 'src/stores/settings'
 
-import locales from './locales'
+import { locales, getLocaleShortName } from './locales'
 
 async function loader(path) {
 	return (await fetch(path)).json()
 }
 
-function register(locale, path = undefined) {
-	register_i18n(locale, () => loader(`locales/${path || locale}.json`))
+function register(locale) {
+	register_i18n(locale, () => loader(`locales/${locale}.json`))
 }
 
 function registerMany(locales) {
 	for (let key of Object.keys(locales)) {
-		register(key, locales[key])
+		// ignore 'en-US', use only short variant 'en'
+		if (key === getLocaleShortName(key)) {
+			register(key)
+		}
 	}
 }
 
-// need refactor when add language picker
-const currentLocale = getLocaleFromNavigator()
-settings.set('locale', currentLocale)
+export function initI18n() {
+	if (get(settings).locale === undefined) {
+		settings.set('locale', getLocaleShortName(getUserLocale()))
+	}
 
-registerMany(locales)
+	registerMany(locales)
 
-init({
-	fallbackLocale: 'en',
-	initialLocale: currentLocale,
-})
+	init({
+		fallbackLocale: 'en',
+		initialLocale: get(settings).locale,
+	})
+}

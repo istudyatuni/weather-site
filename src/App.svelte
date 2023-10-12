@@ -12,7 +12,7 @@
 	import Main from 'src/components/Main.svelte'
 	import Settings from 'src/components/Settings.svelte'
 
-	import 'src/i18n/i18n'
+	import { initI18n } from 'src/i18n/i18n'
 
 	import { debug } from 'src/stores/debug'
 	import { settings } from 'src/stores/settings'
@@ -48,6 +48,7 @@
 	router.base('/weather-site')
 
 	startTimer()
+	initI18n()
 	initApi()
 	initTheme()
 

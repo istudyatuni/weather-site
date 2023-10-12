@@ -1,19 +1,13 @@
 <script>
 	export let title = '',
-		/** @type {{value: string, name: any}[]} [description] */
-		options = [],
 		value = ''
 </script>
 
 <span class="title">{title}:</span>
-<select name={title} id={title} bind:value on:change>
-	{#each options as op}
-		<option value={op.value}>{op.name}</option>
-	{/each}
-</select>
+<input type="text" bind:value />
 
 <style>
-	select {
+	input {
 		background-color: var(--main-bg-color);
 		color: var(--second-fg-color);
 	}

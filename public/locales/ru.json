@@ -21,11 +21,15 @@
 	},
 	"settings": {
 		"title": "Настройки",
+		"reload_required": "Перезагрузите страницу",
 		"theme": {
 			"title": "Тема",
 			"light": "Светлая",
 			"dark": "Темная",
 			"system": "Как в системе"
+		},
+		"language": {
+			"title": "Язык"
 		}
 	}
 }
