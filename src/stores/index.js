@@ -1,6 +1,12 @@
-export { debug, log } from './debug'
-export { isApiLoading } from './loading'
-export { owm_key } from './owm'
-export { settings } from './settings'
-export { time } from './time'
-export { weather } from './weather'
+import { writable } from 'svelte/store'
+
+import { sessionStore } from 'svelte-storages'
+
+export const debug = writable(false)
+export const isApiLoading = writable(false)
+export const log = writable([])
+export const owm_key = writable('')
+export const time = writable('')
+export const weather = sessionStore('weather')
+
+export { settings } from 'src/stores/settings'

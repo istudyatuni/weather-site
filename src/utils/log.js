@@ -1,5 +1,5 @@
 import { get } from 'svelte/store'
-import { debug, log } from 'src/stores/debug'
+import { debug, log } from 'src/stores'
 
 export function logger(message) {
 	if (get(debug)) {

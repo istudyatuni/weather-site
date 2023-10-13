@@ -1,4 +1,4 @@
-import { owm_key } from 'src/stores/owm'
+import { owm_key } from 'src/stores'
 
 import { noCacheHeaders as headers } from 'src/utils/constants'
 

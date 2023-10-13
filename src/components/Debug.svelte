@@ -1,8 +1,7 @@
 <script context="module">
 	import { loadVersion } from 'src/api/debug'
 
-	import { settings } from 'src/stores/settings'
-	import { log } from 'src/stores/debug'
+	import { settings, log } from 'src/stores'
 </script>
 
 <div class="wrapper">

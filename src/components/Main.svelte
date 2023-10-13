@@ -2,7 +2,7 @@
 	import { default as SettingsIcon } from 'src/components/icons/Settings.svelte'
 	import { default as GithubIcon } from 'src/components/icons/Github.svelte'
 
-	import { weather } from 'src/stores/weather'
+	import { weather } from 'src/stores'
 
 	const defaultData = {
 		name: 'city',

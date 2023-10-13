@@ -1,8 +1,7 @@
 <script context="module">
 	import CityInput from 'src/components/inputs/CityInput.svelte'
 
-	import { time } from 'src/stores/time'
-	import { weather } from 'src/stores/weather'
+	import { time, weather } from 'src/stores'
 
 	import { getIcon } from 'src/utils/icons'
 	import { getWeekday } from 'src/utils/dates'

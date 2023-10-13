@@ -1,4 +1,4 @@
-import { time } from 'src/stores/time'
+import { time } from 'src/stores'
 
 function formatTime(time) {
 	const hours = time.getHours()

@@ -8,7 +8,7 @@
 	import Visibility from 'src/components/highlights/Visibility.svelte'
 	import WindStatus from 'src/components/highlights/WindStatus.svelte'
 
-	import { weather } from 'src/stores/weather'
+	import { weather } from 'src/stores'
 </script>
 
 <script>

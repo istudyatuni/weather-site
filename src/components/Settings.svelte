@@ -5,7 +5,7 @@
 
 	import Select from 'src/components/inputs/Select.svelte'
 
-	import { settings } from 'src/stores/settings'
+	import { settings } from 'src/stores'
 </script>
 
 <script>

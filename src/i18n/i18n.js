@@ -5,7 +5,7 @@ import {
 	init,
 	getLocaleFromNavigator as browserLocale,
 } from 'svelte-i18n'
-import { settings } from 'src/stores/settings'
+import { settings } from 'src/stores'
 
 import { localesList, getLocaleShortName } from './locales'
 

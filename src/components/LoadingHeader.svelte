@@ -1,6 +1,6 @@
 <script context="module">
 	import { isLoading } from 'svelte-i18n'
-	import { isApiLoading } from 'src/stores/loading'
+	import { isApiLoading } from 'src/stores'
 </script>
 
 {#if $isLoading || $isApiLoading}
