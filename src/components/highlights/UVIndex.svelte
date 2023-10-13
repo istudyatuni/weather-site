@@ -4,4 +4,10 @@
 	import BaseHighlight from 'src/components/highlights/BaseHighlight.svelte'
 </script>
 
-<BaseHighlight title={$_('highlights.uv_index')} />
+<script>
+	export let uv = ''
+</script>
+
+<BaseHighlight title={$_('highlights.uv_index')}>
+	<div slot="value">{uv}</div>
+</BaseHighlight>

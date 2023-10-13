@@ -1,6 +1,9 @@
 import { time } from 'src/stores'
 
-function formatTime(time) {
+export function formatTime(time) {
+	if (!(time instanceof Date)) {
+		time = new Date(time)
+	}
 	const hours = time.getHours()
 	const minutes = time.getMinutes()
 	return `${hours}:${minutes < 10 ? '0' + minutes : minutes}`
@@ -8,11 +11,6 @@ function formatTime(time) {
 
 function getCurrentTime() {
 	return formatTime(new Date())
-}
-
-export function getTimeFromUnix(unix) {
-	const time = new Date(unix * 1000)
-	return formatTime(time)
 }
 
 function refreshTimer() {

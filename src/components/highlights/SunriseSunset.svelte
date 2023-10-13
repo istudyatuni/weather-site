@@ -3,7 +3,7 @@
 
 	import BaseHighlight from 'src/components/highlights/BaseHighlight.svelte'
 
-	import { getTimeFromUnix } from 'src/utils/time'
+	import { formatTime } from 'src/utils/time'
 </script>
 
 <script>
@@ -14,11 +14,11 @@
 	<svelte:fragment slot="content">
 		<p class="time">
 			<span>{$_('highlights.sun.sunrise')}:</span>
-			{sunrise ? getTimeFromUnix(sunrise) : '--:--'}
+			{sunrise ? formatTime(sunrise) : '--:--'}
 		</p>
 		<p class="time">
 			<span>{$_('highlights.sun.sunset')}:</span>
-			{sunset ? getTimeFromUnix(sunset) : '--:--'}
+			{sunset ? formatTime(sunset) : '--:--'}
 		</p>
 	</svelte:fragment>
 </BaseHighlight>

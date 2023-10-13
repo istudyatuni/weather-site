@@ -4,6 +4,10 @@
 	import { settings, log } from 'src/stores'
 </script>
 
+<script>
+	$: values = Object.entries($settings)
+</script>
+
 <div class="wrapper">
 	{#await loadVersion() then version}
 		<pre>Current version build time: {version}</pre>
@@ -11,10 +15,10 @@
 
 	<h4><pre>LocalStorage.settings:</pre></h4>
 	<ul>
-		{#each Object.keys($settings) as key (key)}
+		{#each values as [key, value] (key)}
 			<li>
 				<code>
-					{key}: {JSON.stringify($settings[key])}
+					{key}: {JSON.stringify(value)}
 				</code>
 			</li>
 		{/each}

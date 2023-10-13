@@ -18,9 +18,9 @@
 <h3>{$_('highlights.title')}</h3>
 
 <div class="grid">
-	<UVIndex />
+	<UVIndex uv={data.uv_index} />
 	<WindStatus speed={data.wind?.speed} deg={data.wind?.deg} />
-	<SunriseSunset sunrise={data.sys?.sunrise} sunset={data.sys?.sunset} />
+	<SunriseSunset sunrise={data?.sunrise} sunset={data?.sunset} />
 	<Humidity percentage={data.main?.humidity} />
 	<Visibility meters={data.visibility} />
 	<AirQuality />

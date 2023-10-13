@@ -7,25 +7,22 @@
 	import { getWeekday } from 'src/utils/dates'
 
 	const defaultData = {
-		weather: [{ icon: '01d', description: '' }],
-	}
-	function roundKelvinTemp(temp) {
-		return Math.round((temp - 273.16) * 10) / 10
+		weather: { icon: '01d', description: '' },
 	}
 </script>
 
 <script>
 	$: data = $weather?.current?.content || defaultData
-	$: image = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+	$: image = `https://openweathermap.org/img/wn/${data.weather.icon}@2x.png`
 </script>
 
 <div class="container">
 	<CityInput />
 	<div class="line">
-		<img class="big-icon" src={getIcon(data.weather[0].icon)} alt="" />
+		<img class="big-icon" src={getIcon(data.weather.icon)} alt="" />
 		<div style="margin: auto;">
 			<p class="temperature">
-				{data?.main?.temp ? roundKelvinTemp(data.main.temp) : '-.-'}
+				{data?.main?.temp ?? '-.-'}
 				&deg;<span>C</span>
 			</p>
 			<p class="title-case">
@@ -35,8 +32,8 @@
 	</div>
 	<hr class="separator" noshade size="1" width="100%" />
 	<div class="description">
-		<img src={image} width="60" height="60" alt={data.weather[0].description} />
-		<p class="title-case">{data.weather[0].description}</p>
+		<img src={image} width="60" height="60" alt={data.weather.description} />
+		<p class="title-case">{data.weather.description}</p>
 	</div>
 </div>
 

@@ -1,9 +1,28 @@
 import { get } from 'svelte/store'
-import { owm_key, settings, weather } from 'src/stores'
+import { settings, weather } from 'src/stores'
 
 import { logger } from 'src/utils/log'
 
+const BASE = 'https://api.open-meteo.com/v1/forecast'
 const refreshMinutes = 20
+
+const queryFields = {
+	current: [
+		'temperature_2m',
+		'relativehumidity_2m',
+		'is_day',
+		'weathercode',
+		'windspeed_10m',
+		'winddirection_10m',
+	],
+	hourly: ['visibility'],
+	daily: ['sunrise', 'sunset', 'uv_index_max'],
+}
+
+const queryUnits = {
+	windspeed_unit: 'ms',
+}
+const forecast_days = 1
 
 export async function loadCityWeather(force = false) {
 	const current = new Date()
@@ -15,23 +34,25 @@ export async function loadCityWeather(force = false) {
 	const s = get(settings)
 
 	const params = new URLSearchParams()
-	params.set('appid', get(owm_key))
-	params.set('lang', s.locale)
-	params.set('lat', s.current_city.lat)
-	params.set('lon', s.current_city.lon)
+	params.set('latitude', s.current_city.lat)
+	params.set('longitude', s.current_city.lon)
+	params.set('timezone', s.tz)
+	for (let [period, fields] of Object.entries(queryFields)) {
+		params.set(period, fields)
+	}
+	for (let [k, v] of Object.entries(queryUnits)) {
+		params.set(k, v)
+	}
+	params.set('forecast_days', forecast_days)
 
-	const response = await fetch(
-		'https://api.openweathermap.org/data/2.5/weather?' + params.toString()
-	)
+	const response = await fetch(BASE + '?' + params.toString())
 	logger(response.url)
 	const content = await response.json()
 
 	if (response.ok) {
 		current.setMinutes(current.getMinutes() + refreshMinutes)
-		// hack to use name from geocoding api
-		content.name = s.current_city.name
 		weather.set('current', {
-			content,
+			content: mapForecastResponse(content),
 			until: current.getTime(),
 		})
 	} else {
@@ -40,5 +61,34 @@ export async function loadCityWeather(force = false) {
 		if (content.message === 'city not found') {
 			settings.delete('current_city')
 		}
+	}
+}
+
+function mapForecastResponse(res) {
+	let nowHour = new Date().getHours()
+	return {
+		weather: {
+			// todo: replace with real values
+			main: 'Cloud',
+			description: 'Cloudy',
+			icon: '01d',
+		},
+		main: {
+			temp: res.current.temperature_2m,
+			// feels_like: res.current.apparent_temperature,
+			// temp_min
+			// temp_max
+			// pressure
+			humidity: res.current.relativehumidity_2m,
+		},
+		// res.hourly.visibility[].length == 24 (always)
+		visibility: res.hourly.visibility[nowHour],
+		wind: {
+			speed: res.current.windspeed_10m,
+			deg: res.current.winddirection_10m,
+		},
+		sunrise: res.daily.sunrise[0],
+		sunset: res.daily.sunset[0],
+		uv_index: res.daily.uv_index_max[0],
 	}
 }

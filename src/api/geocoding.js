@@ -38,7 +38,6 @@ function mapGeocodingResponse(list) {
 			name: [e.name, e.country].filter((v) => v !== '').join(', '),
 			lat: e.latitude,
 			lon: e.longitude,
-			tz: e.timezone,
 		}
 		if (e.admin1 !== undefined && e.admin1 !== e.name) {
 			res.admin = e.admin1

@@ -5,7 +5,6 @@ import { sessionStore } from 'svelte-storages'
 export const debug = writable(false)
 export const isApiLoading = writable(false)
 export const log = writable([])
-export const owm_key = writable('')
 export const time = writable('')
 export const weather = sessionStore('weather')
 

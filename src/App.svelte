@@ -18,14 +18,12 @@
 	import { migrateSettings } from 'src/stores/settings'
 
 	import { startTimer } from 'src/utils/time'
-	import { initKey } from 'src/utils/owm'
 </script>
 
 <script>
 	async function initApi() {
 		migrateSettings()
 		isApiLoading.set(true)
-		await initKey()
 		await loadCityWeather()
 		isApiLoading.set(false)
 		setTimeout(count, 2000)

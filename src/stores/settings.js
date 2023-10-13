@@ -10,19 +10,12 @@ const initial = {
 		lat: 51.50853,
 		lon: -0.12574,
 		name: 'London, United Kingdom',
-		tz: 'Europe/London',
 	},
+	// get client timezone
+	tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
 }
 
-/**
- * Settings store
- *
- * Keys:
- *
- *   - `current_city`
- *   - `locale`
- *   - `theme`: one of 'light', 'dark', 'system'
- */
+/** Settings store */
 export const settings = localStore('settings', initial)
 
 /** Migrate settings */

@@ -2,16 +2,10 @@
 	import { default as SettingsIcon } from 'src/components/icons/Settings.svelte'
 	import { default as GithubIcon } from 'src/components/icons/Github.svelte'
 
-	import { weather } from 'src/stores'
-
-	const defaultData = {
-		name: 'city',
-	}
+	import { settings, weather } from 'src/stores'
 </script>
 
 <script>
-	$: data = $weather?.current?.content || defaultData
-
 	// hack
 	// it works, but have strange behaviour:
 	//
@@ -22,7 +16,7 @@
 
 <div class="grid-item">
 	<div class="inline">
-		<h4 class="city">{data.name}</h4>
+		<h4 class="city">{$settings.current_city.name}</h4>
 
 		<div class="inline">
 			<a

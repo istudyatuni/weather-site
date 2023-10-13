@@ -10,21 +10,21 @@
 </script>
 
 <script>
-	let city = '',
+	let city_name = '',
 		showCitiesResult = false
 
 	async function handleInput(e) {
-		if (e.key !== 'Enter' || city === '') {
+		if (e.key !== 'Enter' || city_name === '') {
 			return
 		}
 
-		if (city === 'debug') {
+		if (city_name === 'debug') {
 			debug.set(!$debug)
 			return
 		}
 
 		weather.set('geocoding', {})
-		await searchByCityName(city)
+		await searchByCityName(city_name)
 		showCitiesResult = true
 	}
 
@@ -33,12 +33,12 @@
 		settings.set('current_city', { lat, lon, name })
 		loadCityWeather(true)
 		showCitiesResult = false
-		city = ''
+		city_name = ''
 	}
 </script>
 
 <input
-	bind:value={city}
+	bind:value={city_name}
 	on:keyup={handleInput}
 	on:input={() => (showCitiesResult = false)}
 	type="text"
