@@ -1,4 +1,3 @@
-export { cities } from './cities'
 export { debug, log } from './debug'
 export { isApiLoading } from './loading'
 export { owm_key } from './owm'

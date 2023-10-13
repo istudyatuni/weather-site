@@ -14,9 +14,8 @@
 
 	import { init_i18n } from 'src/i18n/i18n'
 
-	import { debug } from 'src/stores/debug'
-	import { settings } from 'src/stores/settings'
-	import { isApiLoading } from 'src/stores/loading'
+	import { debug, settings, isApiLoading } from 'src/stores'
+	import { migrateSettings } from 'src/stores/settings'
 
 	import { startTimer } from 'src/utils/time'
 	import { initKey } from 'src/utils/owm'
@@ -24,6 +23,7 @@
 
 <script>
 	async function initApi() {
+		migrateSettings()
 		isApiLoading.set(true)
 		await initKey()
 		await loadCityWeather()
