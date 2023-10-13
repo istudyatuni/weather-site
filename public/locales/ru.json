@@ -1,6 +1,9 @@
 {
 	"loading": "Загрузка",
-	"search_city": "Поиск города",
+	"search_city": {
+		"placeholder": "Поиск города",
+		"no_cities_found": "Городов не найдено"
+	},
 	"highlights": {
 		"title": "Погода сегодня",
 		"uv_index": "Индекс ультрафиолета",

@@ -1,6 +1,9 @@
 {
 	"loading": "Loading",
-	"search_city": "Search for the sity",
+	"search_city": {
+		"placeholder": "Search for the sity",
+		"no_cities_found": "No cities found"
+	},
 	"highlights": {
 		"title": "Today's highlights",
 		"uv_index": "UV Index",

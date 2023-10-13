@@ -1,28 +1,9 @@
 import { get } from 'svelte/store'
-import { owm_key } from 'src/stores/owm'
-import { settings } from 'src/stores/settings'
-import { weather } from 'src/stores/weather'
+import { owm_key, settings, weather } from 'src/stores'
 
-import { getBrowserLanguage } from 'src/utils/lang'
 import { logger } from 'src/utils/log'
 
 const refreshMinutes = 20
-const defaultCity = 'moscow'
-
-/**
- * While not used. Need for using One-call API
- * @param  {[type]} city [description]
- * @return {[type]}      [description]
- */
-async function getCoords(city) {
-	const params = new URLSearchParams()
-	params.set('q', city)
-	params.set('appid', get(owm_key))
-
-	const response = await fetch(
-		'https://api.openweathermap.org/geo/1.0/direct?' + params.toString()
-	)
-}
 
 export async function loadCityWeather(force = false) {
 	const current = new Date()
@@ -34,9 +15,10 @@ export async function loadCityWeather(force = false) {
 	const s = get(settings)
 
 	const params = new URLSearchParams()
-	params.set('q', get(settings).current_city || defaultCity)
 	params.set('appid', get(owm_key))
 	params.set('lang', s.locale)
+	params.set('lat', s.current_city.lat)
+	params.set('lon', s.current_city.lon)
 
 	const response = await fetch(
 		'https://api.openweathermap.org/data/2.5/weather?' + params.toString()
@@ -46,6 +28,8 @@ export async function loadCityWeather(force = false) {
 
 	if (response.ok) {
 		current.setMinutes(current.getMinutes() + refreshMinutes)
+		// hack to use name from geocoding api
+		content.name = s.current_city.name
 		weather.set('current', {
 			content,
 			until: current.getTime(),
