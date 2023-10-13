@@ -24,7 +24,9 @@
 <h3>{$_('settings.title')}</h3>
 
 {#if reloadRequired}
-	<div class="reload_required">{$_('settings.reload_required')}</div>
+	<div class="reload-required">
+		{$_('settings.reload_required', { locale: $settings.locale })}
+	</div>
 {/if}
 
 <div>
@@ -43,7 +45,7 @@
 </div>
 
 <style>
-	.reload_required {
+	.reload-required {
 		color: var(--second-fg-color);
 		font-style: italic;
 		margin-bottom: 0.7em;

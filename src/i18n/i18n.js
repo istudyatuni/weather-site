@@ -3,11 +3,11 @@ import { get } from 'svelte/store'
 import {
 	register as register_i18n,
 	init,
-	getLocaleFromNavigator as getUserLocale,
+	getLocaleFromNavigator as browserLocale,
 } from 'svelte-i18n'
 import { settings } from 'src/stores/settings'
 
-import { locales, getLocaleShortName } from './locales'
+import { localesList, getLocaleShortName } from './locales'
 
 async function loader(path) {
 	return (await fetch(path)).json()
@@ -18,20 +18,17 @@ function register(locale) {
 }
 
 function registerMany(locales) {
-	for (let key of Object.keys(locales)) {
-		// ignore 'en-US', use only short variant 'en'
-		if (key === getLocaleShortName(key)) {
-			register(key)
-		}
+	for (let loc of locales) {
+		register(loc)
 	}
 }
 
-export function initI18n() {
+export function init_i18n() {
 	if (get(settings).locale === undefined) {
-		settings.set('locale', getLocaleShortName(getUserLocale()))
+		settings.set('locale', getLocaleShortName(browserLocale()))
 	}
 
-	registerMany(locales)
+	registerMany(localesList)
 
 	init({
 		fallbackLocale: 'en',

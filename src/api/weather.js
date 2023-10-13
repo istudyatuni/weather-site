@@ -31,11 +31,12 @@ export async function loadCityWeather(force = false) {
 		return
 	}
 
+	const s = get(settings)
+
 	const params = new URLSearchParams()
 	params.set('q', get(settings).current_city || defaultCity)
 	params.set('appid', get(owm_key))
-	// slice for convert 'ru-RU' -> 'ru'
-	params.set('lang', getBrowserLanguage().slice(0, 2))
+	params.set('lang', s.locale)
 
 	const response = await fetch(
 		'https://api.openweathermap.org/data/2.5/weather?' + params.toString()

@@ -4,12 +4,14 @@
  * where path will be used as 'path + .json'
  * @type {Object}
  */
-export const locales = {
+const locales = {
 	en: 'en',
 	'en-US': 'en',
 	ru: 'ru',
 	'ru-RU': 'ru',
 }
+
+export const localesList = [...new Set(Object.values(locales))]
 
 export function getLocaleShortName(l) {
 	return locales[l]

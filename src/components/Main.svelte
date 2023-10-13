@@ -1,6 +1,4 @@
 <script context="module">
-	import { Route } from 'tinro'
-
 	import { default as SettingsIcon } from 'src/components/icons/Settings.svelte'
 	import { default as GithubIcon } from 'src/components/icons/Github.svelte'
 
