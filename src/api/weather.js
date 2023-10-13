@@ -7,7 +7,8 @@ import { getIconIdByWmo } from '../utils/icons'
 const BASE = 'https://api.open-meteo.com/v1/forecast'
 const refreshMinutes = 20
 
-const queryFields = {
+const query = {
+	// fields
 	current: [
 		'temperature_2m',
 		'relativehumidity_2m',
@@ -18,12 +19,13 @@ const queryFields = {
 	],
 	hourly: ['visibility'],
 	daily: ['sunrise', 'sunset', 'uv_index_max'],
-}
 
-const queryUnits = {
+	// units
 	windspeed_unit: 'ms',
+
+	// config
+	forecast_days: 1,
 }
-const forecast_days = 1
 
 export async function loadCityWeather(force = false) {
 	const current = new Date()
@@ -38,13 +40,9 @@ export async function loadCityWeather(force = false) {
 	params.set('latitude', s.current_city.lat)
 	params.set('longitude', s.current_city.lon)
 	params.set('timezone', s.tz)
-	for (let [period, fields] of Object.entries(queryFields)) {
-		params.set(period, fields)
-	}
-	for (let [k, v] of Object.entries(queryUnits)) {
+	for (let [k, v] of Object.entries(query)) {
 		params.set(k, v)
 	}
-	params.set('forecast_days', forecast_days)
 
 	const response = await fetch(BASE + '?' + params.toString())
 	logger(response.url)
@@ -66,6 +64,8 @@ export async function loadCityWeather(force = false) {
 }
 
 function mapForecastResponse(res) {
+	// length of all hourly arrays always equals to 24
+	// so use current hour to get index
 	let nowHour = new Date().getHours()
 	return {
 		weather: {
@@ -80,7 +80,6 @@ function mapForecastResponse(res) {
 			// pressure
 			humidity: res.current.relativehumidity_2m,
 		},
-		// res.hourly.visibility[].length == 24 (always)
 		visibility: res.hourly.visibility[nowHour],
 		wind: {
 			speed: res.current.windspeed_10m,
