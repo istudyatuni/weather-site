@@ -46,7 +46,41 @@ const icons = {
 	'50n': 'foggy_weather_fog_clouds_cloudy',
 }
 
-const iconsList = [
+// see docs/weather-codes.md for description
+//
+// codes descriptions are fetched from translation
+const wmo_map = {
+	0: '01',
+	1: '02',
+	2: '03',
+	3: '04',
+	45: '50',
+	48: '50',
+	51: '50',
+	53: '50',
+	55: '50',
+	56: '50',
+	57: '50',
+	61: '09',
+	63: '09',
+	65: '10',
+	66: '09',
+	67: '10',
+	71: '13',
+	73: '13',
+	75: '13',
+	77: '13',
+	80: '10',
+	81: '10',
+	82: '10',
+	85: '13',
+	86: '13',
+	95: '11',
+	96: '11',
+	99: '11',
+}
+
+/*const iconsList = [
 	'cloud_flash',
 	'cloudy',
 	'night_moon',
@@ -58,8 +92,13 @@ const iconsList = [
 	'sunny',
 	'water_rain_cloud',
 	'water_rain_drop',
-]
+]*/
 
 export function getIcon(icon) {
 	return `icons/weather-icons/32/${icons[icon]}.svg`
+}
+
+export function getIconIdByWmo(wmo, is_day) {
+	let day_night = is_day ? 'd' : 'n'
+	return wmo_map[wmo] + day_night
 }

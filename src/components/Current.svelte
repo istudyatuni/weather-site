@@ -1,4 +1,6 @@
 <script context="module">
+	import { _ } from 'svelte-i18n'
+
 	import CityInput from 'src/components/inputs/CityInput.svelte'
 
 	import { time, weather } from 'src/stores'
@@ -6,13 +8,12 @@
 	import { getIcon } from 'src/utils/icons'
 	import { getWeekday } from 'src/utils/dates'
 
-	const defaultData = {
-		weather: { icon: '01d', description: '' },
-	}
+	const defaultData = { weather: { icon: '01d', weathercode: 1 } }
 </script>
 
 <script>
 	$: data = $weather?.current?.content || defaultData
+	$: description = $_(`weather.wmo_description.${data.weather.weathercode}`)
 	$: image = `https://openweathermap.org/img/wn/${data.weather.icon}@2x.png`
 </script>
 
@@ -32,8 +33,8 @@
 	</div>
 	<hr class="separator" noshade size="1" width="100%" />
 	<div class="description">
-		<img src={image} width="60" height="60" alt={data.weather.description} />
-		<p class="title-case">{data.weather.description}</p>
+		<img src={image} width="60" height="60" alt={description} />
+		<p class="title-case">{description}</p>
 	</div>
 </div>
 

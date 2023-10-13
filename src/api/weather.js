@@ -2,6 +2,7 @@ import { get } from 'svelte/store'
 import { settings, weather } from 'src/stores'
 
 import { logger } from 'src/utils/log'
+import { getIconIdByWmo } from '../utils/icons'
 
 const BASE = 'https://api.open-meteo.com/v1/forecast'
 const refreshMinutes = 20
@@ -68,10 +69,8 @@ function mapForecastResponse(res) {
 	let nowHour = new Date().getHours()
 	return {
 		weather: {
-			// todo: replace with real values
-			main: 'Cloud',
-			description: 'Cloudy',
-			icon: '01d',
+			weathercode: res.current.weathercode,
+			icon: getIconIdByWmo(res.current.weathercode, res.current.is_day),
 		},
 		main: {
 			temp: res.current.temperature_2m,
