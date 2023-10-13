@@ -4,9 +4,9 @@
 	import { loadCityWeather } from 'src/api/weather'
 	import { searchByCityName } from 'src/api/geocoding'
 
-	import CityInputInfo from 'src/components/CityInputInfo.svelte'
+	import CityInputInfo from 'src/components/inputs/CityInputInfo.svelte'
 
-	import { debug, weather, settings  } from 'src/stores'
+	import { debug, weather, settings } from 'src/stores'
 </script>
 
 <script>
