@@ -48,7 +48,7 @@
 {#if showCitiesResult}
 	{#if Array.isArray($weather.geocoding)}
 		<div class="cities-list">
-			{#each $weather.geocoding as city}
+			{#each $weather.geocoding as city, i (i)}
 				<CityInputInfo {city} on:select={handleSelect} />
 			{/each}
 		</div>
