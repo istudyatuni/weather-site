@@ -3,12 +3,11 @@ import { settings, weather } from 'src/stores'
 import { logger } from 'src/utils/log'
 
 const BASE = 'https://geocoding-api.open-meteo.com/v1/search'
-const defaultCity = 'moscow'
-const minSearchResults = 5
+const defaultSearchCount = 5
 
-export async function searchByCityName(name = defaultCity) {
+export async function searchByCityName(name, count = defaultSearchCount) {
 	const params = new URLSearchParams()
-	params.set('count', minSearchResults)
+	params.set('count', count)
 	params.set('language', get(settings).locale)
 	params.set('name', name)
 
