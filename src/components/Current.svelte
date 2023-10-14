@@ -24,7 +24,7 @@
 		<div style="margin: auto;">
 			<p class="temperature">
 				{data?.main?.temp ?? '-.-'}
-				&deg;<span>C</span>
+				<span class="measure">&deg;C</span>
 			</p>
 			<p class="title-case">
 				{getWeekday()}<span class="time">, {$time}</span>
@@ -38,8 +38,8 @@
 	</div>
 </div>
 
-<style type="text/css">
-	@media screen and (max-width: 980px) {
+<style lang="scss">
+	@media screen and (max-width: $layout-breakpoint) {
 		.big-icon {
 			min-width: 120px;
 			width: 20%;
@@ -48,7 +48,7 @@
 			display: flex;
 		}
 	}
-	@media screen and (min-width: 980px) {
+	@media screen and (min-width: $layout-breakpoint) {
 		.big-icon {
 			width: 100%;
 		}
@@ -64,8 +64,11 @@
 		font-size: 3em;
 		margin: 0;
 	}
-	.temperature > span {
+	.measure {
 		font-size: 0.6em;
+		position: absolute;
+		margin: 8px 5px;
+		color: var(--second-fg-color);
 	}
 	.title-case::first-letter {
 		text-transform: uppercase;
