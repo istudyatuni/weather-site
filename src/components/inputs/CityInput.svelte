@@ -24,7 +24,10 @@
 	}
 
 	async function handleInput(e) {
-		if (e.code !== 'Enter' || city_name.trim() === '') {
+		// fallback on screen (mobile) keyboard
+		let key = e.code === '' ? e.key : e.code
+
+		if (key !== 'Enter' || city_name.trim() === '') {
 			return
 		}
 
