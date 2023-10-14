@@ -1,8 +1,10 @@
+import path from 'path'
+
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import Icons from 'unplugin-icons/vite'
 
-import path from 'path'
+import * as postcss from './postcss.config.js'
 
 const config = defineConfig({
 	plugins: [svelte(), Icons({ compiler: 'svelte' })],
@@ -26,6 +28,14 @@ const config = defineConfig({
 	base: '/weather-site/',
 	optimizeDeps: {
 		exclude: ['tinro'],
+	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: '@use "src/variables.scss" as *;',
+			},
+		},
+		postcss,
 	},
 })
 

@@ -53,6 +53,8 @@
 	.scale {
 		width: 13em;
 		height: 2em;
+
+		/* https://cssgradient.io */
 		background: rgb(40, 255, 39);
 		background: linear-gradient(
 			90deg,
