@@ -10,7 +10,7 @@
 	/** Dispatch 'name' event. If event is keypress, only Enter key is accepted */
 	function handler(name) {
 		return (e) => {
-			if (e.type === 'keypress' && e.key !== 'Enter') {
+			if (e.type === 'keypress' && e.code !== 'Enter') {
 				// skip any keys except Enter
 				return
 			}

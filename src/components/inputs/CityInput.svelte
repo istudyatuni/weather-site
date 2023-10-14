@@ -17,7 +17,7 @@
 		showRecentSearches = false
 
 	async function handleInput(e) {
-		if (e.key !== 'Enter' || city_name === '') {
+		if (e.code !== 'Enter' || city_name.trim() === '') {
 			return
 		}
 
