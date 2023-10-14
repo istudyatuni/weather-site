@@ -6,14 +6,20 @@
 	},
 	"highlights": {
 		"title": "Today's highlights",
-		"uv_index": "UV Index",
+		"uv_index": {
+			"title": "UV Index",
+			"help": "Daily UV index"
+		},
 		"wind_status": "Wind Status",
 		"sun": {
 			"title": "Sunrise & Sunset",
 			"sunrise": "Sunrise",
 			"sunset": "Sunset"
 		},
-		"humidity": "Humidity",
+		"humidity": {
+			"title": "Humidity",
+			"help": "Relative, at 2m above ground"
+		},
 		"visibility": "Visibility",
 		"air_quality": "Air Quality",
 		"measure": {

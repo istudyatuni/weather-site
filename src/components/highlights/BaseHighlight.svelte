@@ -1,9 +1,24 @@
+<script context="module">
+	import Question from '~icons/tabler/question-circle'
+
+	import Tooltip from 'src/components/atoms/Tooltip.svelte'
+</script>
+
 <script>
-	export let title
+	export let title, help
 </script>
 
 <div class="wrapper">
-	<p class="title">{title}</p>
+	<p class="title">
+		<span>{title}</span>
+		{#if help}
+			<span class="help">
+				<Tooltip text={help}>
+					<Question slot="under" width="20" height="20" />
+				</Tooltip>
+			</span>
+		{/if}
+	</p>
 	<div class="data">
 		<p class="value">
 			<slot name="value" />
@@ -30,6 +45,14 @@
 	.title {
 		color: var(--second-fg-color);
 		margin: 0;
+		display: flex;
+		align-items: stretch;
+	}
+	.title > .help {
+		margin-left: 10px;
+	}
+	.title > .help:hover {
+		color: var(--main-fg-color);
 	}
 	.value {
 		font-size: 2.5em;

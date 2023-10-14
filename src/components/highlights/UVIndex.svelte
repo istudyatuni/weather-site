@@ -8,6 +8,8 @@
 	export let uv = ''
 </script>
 
-<BaseHighlight title={$_('highlights.uv_index')}>
+<BaseHighlight
+	title={$_('highlights.uv_index.title')}
+	help={$_('highlights.uv_index.help')}>
 	<div slot="value">{uv}</div>
 </BaseHighlight>
