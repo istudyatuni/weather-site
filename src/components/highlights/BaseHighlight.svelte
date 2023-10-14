@@ -4,10 +4,12 @@
 
 <div class="wrapper">
 	<p class="title">{title}</p>
-	<p class="value">
-		<slot name="value" />
-	</p>
-	<slot name="content" />
+	<div class="data">
+		<p class="value">
+			<slot name="value" />
+		</p>
+		<slot name="content" />
+	</div>
 </div>
 
 <style>
@@ -16,13 +18,16 @@
 		padding: 1em;
 		background-color: var(--main-bg-color);
 	}
+	.data {
+		padding: 0 0.5em;
+	}
 	.title {
 		color: var(--second-fg-color);
 		margin: 0;
 	}
 	.value {
 		font-size: 2.5em;
-		margin: 0.5em;
+		margin: 20px 0;
 	}
 	.value:empty {
 		display: none;

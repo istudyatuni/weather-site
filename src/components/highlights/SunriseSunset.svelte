@@ -26,7 +26,6 @@
 <style>
 	.time {
 		font-size: 1.3em;
-		padding-left: 0.5em;
 		font-weight: 600;
 		margin: 0.5em 0;
 	}

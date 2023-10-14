@@ -15,7 +15,7 @@
 		<div class="highlight-value">
 			{speed ?? '-.-'} <span>{$_('highlights.measure.m_in_s')}</span>
 		</div>
-		<div class="m-auto">
+		<div class="dir-wrapper m-auto">
 			<img
 				src="icons/arrow_compass.svg"
 				class="m-auto"
@@ -35,12 +35,16 @@
 		display: flex;
 		padding-top: 1em;
 	}
+	.dir-wrapper {
+		display: flex;
+		align-items: center;
+	}
 	.m-auto {
 		margin: auto;
 	}
 	.wind-dir {
 		font-size: 1.4em;
-		margin-left: 6px;
+		margin-left: 15px;
 	}
 	.highlight-value {
 		font-size: 2.5em;

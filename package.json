@@ -11,8 +11,8 @@
     "vite": "^4.4.11"
   },
   "scripts": {
-    "build": "vite build",
     "dev": "vite",
+    "build": "vite build",
     "preview": "vite build && vite preview",
     "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte' './**/*.css' './**/*.json'"
   },
