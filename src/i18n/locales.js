@@ -11,6 +11,8 @@ const locales = {
 	'ru-RU': 'ru',
 }
 
+export const fallbackLocale = 'en'
+
 export const localesList = [...new Set(Object.values(locales))]
 
 export function getLocaleShortName(l) {

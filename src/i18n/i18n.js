@@ -7,7 +7,7 @@ import {
 } from 'svelte-i18n'
 import { settings } from 'src/stores'
 
-import { localesList, getLocaleShortName } from './locales'
+import { localesList, getLocaleShortName, fallbackLocale } from './locales'
 
 async function loader(path) {
 	return (await fetch(path)).json()
@@ -25,13 +25,13 @@ function registerMany(locales) {
 
 export function init_i18n() {
 	if (get(settings).locale === undefined) {
-		settings.set('locale', getLocaleShortName(browserLocale()))
+		settings.set('locale', getLocaleShortName(browserLocale()) || fallbackLocale)
 	}
 
 	registerMany(localesList)
 
 	init({
-		fallbackLocale: 'en',
+		fallbackLocale: fallbackLocale,
 		initialLocale: get(settings).locale,
 	})
 }
