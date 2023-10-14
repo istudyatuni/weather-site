@@ -35,7 +35,7 @@
 		let { lat, lon, name } = e.detail
 		settings.set('current_city', { lat, lon, name })
 		loadCityWeather(true)
-		showCitiesResult = false
+		hideDropdown()
 		add_search(city_name)
 		city_name = ''
 	}
