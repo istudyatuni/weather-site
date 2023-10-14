@@ -8,13 +8,17 @@
 
 	import { cache, debug, weather, settings } from 'src/stores'
 
-	const countRecentSearches = 5
+	const maxListItems = 5
 </script>
 
 <script>
 	let city_name = '',
 		showCitiesResult = false,
 		showRecentSearches = false
+
+	$: recentSearches = $cache.searches.filter(({ name }) =>
+		name.startsWith(city_name)
+	)
 
 	/** @type {HTMLInputElement} */
 	let inputElement = null
@@ -23,7 +27,13 @@
 		inputElement.focus()
 	}
 
-	async function handleInput(e) {
+	async function startSearch() {
+		weather.set('geocoding', {})
+		await searchByCityName(city_name.trim())
+		showCitiesResult = true
+	}
+
+	function handleInput(e) {
 		// fallback on screen (mobile) keyboard
 		let key = e.code === '' ? e.key : e.code
 
@@ -36,18 +46,23 @@
 			return
 		}
 
-		weather.set('geocoding', {})
-		await searchByCityName(city_name.trim())
-		showCitiesResult = true
+		startSearch()
 	}
 
-	function handleSelect(e) {
+	function handleCitySelect(e) {
 		let { lat, lon, name } = e.detail
 		settings.set('current_city', { lat, lon, name })
 		loadCityWeather(true)
 		hideDropdown()
 		add_search(city_name)
 		city_name = ''
+	}
+
+	function handleRecentSearchSelect(e) {
+		city_name = e.detail.name
+		focusInput()
+		hideDropdown()
+		startSearch()
 	}
 
 	function add_search(name) {
@@ -76,7 +91,6 @@
 	on:keyup={handleInput}
 	on:click={() => (showRecentSearches = true)}
 	on:focusin={() => (showRecentSearches = true)}
-	on:input={hideDropdown}
 	type="text"
 	name="search"
 	placeholder={$_('search_city.placeholder')} />
@@ -85,7 +99,7 @@
 	{#if Array.isArray($weather.geocoding)}
 		<div class="cities-list">
 			{#each $weather.geocoding as city, i (i)}
-				<CityInputInfo {city} on:select={handleSelect} />
+				<CityInputInfo {city} on:select={handleCitySelect} />
 			{/each}
 		</div>
 	{:else}
@@ -95,13 +109,10 @@
 
 {#if showRecentSearches && !showCitiesResult && Array.isArray($cache.searches)}
 	<div class="cities-list">
-		{#each $cache.searches.slice(0, countRecentSearches) as city, i (i)}
+		{#each recentSearches.slice(0, maxListItems) as city, i (i)}
 			<CityInputInfo
 				{city}
-				on:select={(e) => {
-					city_name = e.detail.name
-					focusInput()
-				}}
+				on:select={handleRecentSearchSelect}
 				on:deletion={(e) => remove_search(e.detail.name)}
 				allow_delete />
 		{/each}
