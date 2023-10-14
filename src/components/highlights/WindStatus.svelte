@@ -17,7 +17,8 @@
 
 <BaseHighlight title={$_('highlights.wind_status')}>
 	<div slot="value">
-		{speed ?? '-.-'} <span class="value-measure">{$_('highlights.measure.m_in_s')}</span>
+		{speed ?? '-.-'}
+		<span class="value-measure">{$_('highlights.measure.m_in_s')}</span>
 	</div>
 	<div class="dir-wrapper" slot="content">
 		<Arrow

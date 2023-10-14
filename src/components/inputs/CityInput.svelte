@@ -16,6 +16,13 @@
 		showCitiesResult = false,
 		showRecentSearches = false
 
+	/** @type {HTMLInputElement} */
+	let inputElement = null
+
+	function focusInput() {
+		inputElement.focus()
+	}
+
 	async function handleInput(e) {
 		if (e.code !== 'Enter' || city_name.trim() === '') {
 			return
@@ -61,6 +68,7 @@
 </script>
 
 <input
+	bind:this={inputElement}
 	bind:value={city_name}
 	on:keyup={handleInput}
 	on:click={() => (showRecentSearches = true)}
@@ -87,7 +95,10 @@
 		{#each $cache.searches.slice(0, countRecentSearches) as city, i (i)}
 			<CityInputInfo
 				{city}
-				on:select={(e) => (city_name = e.detail.name)}
+				on:select={(e) => {
+					city_name = e.detail.name
+					focusInput()
+				}}
 				on:deletion={(e) => remove_search(e.detail.name)}
 				allow_delete />
 		{/each}

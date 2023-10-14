@@ -55,7 +55,8 @@
 	.inline > a {
 		margin: 0 0.4em;
 	}
-	.settings, .github {
+	.settings,
+	.github {
 		color: var(--second-fg-color);
 	}
 </style>
