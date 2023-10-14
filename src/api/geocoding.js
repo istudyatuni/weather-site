@@ -35,7 +35,7 @@ function mapGeocodingResponse(list) {
 	return list.map((e) => {
 		let res = {
 			id: e.id,
-			name: [e.name, e.country].filter((v) => v !== '').join(', '),
+			name: [e.name, e.country].filter((v) => (v ?? '') !== '').join(', '),
 			lat: e.latitude,
 			lon: e.longitude,
 		}
