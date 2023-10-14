@@ -54,13 +54,16 @@
 		border-radius: 5px;
 
 		// https://cssgradient.io
+		//
+		// percents are calculated this way (in kalker):
+		// (2, 5, 7, 10) * (100 / 11) = (18 + 2/11, 45 + 5/11, 63 + 7/11, 90 + 10/11)
 		background: linear-gradient(
 			90deg,
 			rgba(40, 255, 39, 1) 0%,
-			rgba(255, 252, 33, 1) 15%,
-			rgba(255, 153, 0, 1) 42%,
-			rgba(255, 91, 3, 1) 57%,
-			rgba(255, 20, 0, 1) 85%,
+			rgba(255, 252, 33, 1) 18.2%,
+			rgba(255, 153, 0, 1) 45.5%,
+			rgba(255, 91, 3, 1) 63.7%,
+			rgba(255, 20, 0, 1) 90.9%,
 			rgba(204, 0, 255, 1) 100%
 		);
 	}
