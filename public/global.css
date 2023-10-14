@@ -5,8 +5,11 @@ body {
 	--second-bg-color: hsl(0, 0%, 95%);
 	--main-fg-color: black;
 	--second-fg-color: gray;
+
 	--tooltip-fg-color: var(--second-bg-color);
 	--tooltip-bg-color: #696969;
+
+	--uv-bar-color: black;
 }
 
 body.dark {
@@ -14,8 +17,11 @@ body.dark {
 	--second-bg-color: #353941;
 	--main-fg-color: #90b8f8;
 	--second-fg-color: darkgray;
+
 	--tooltip-fg-color: #b7b9be;
 	--tooltip-bg-color: #4f4e51;
+
+	--uv-bar-color: white;
 }
 
 body {
