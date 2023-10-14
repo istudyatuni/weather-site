@@ -1,6 +1,8 @@
 <script context="module">
 	import { _ } from 'svelte-i18n'
 
+	import Arrow from '~icons/tabler/archery-arrow'
+
 	import BaseHighlight from 'src/components/highlights/BaseHighlight.svelte'
 
 	import { getWindDirection } from 'src/utils/wind'
@@ -8,17 +10,18 @@
 
 <script>
 	export let speed, deg
+
+	// we have to take into account the original icon's rotation: -135 deg
+	$: normalized_deg = 135 + deg
 </script>
 
 <BaseHighlight title={$_('highlights.wind_status')}>
 	<div slot="value">
 		{speed ?? '-.-'} <span class="value-measure">{$_('highlights.measure.m_in_s')}</span>
 	</div>
-	<div class="dir-wrapper m-auto" slot="content">
-		<img
-			src="icons/arrow_compass.svg"
-			class="m-auto"
-			style:transform={`rotate(${deg}deg)`}
+	<div class="dir-wrapper" slot="content">
+		<Arrow
+			style={`transform: rotate(${normalized_deg}deg);`}
 			alt=""
 			width="30"
 			height="30" />
@@ -32,8 +35,6 @@
 	.dir-wrapper {
 		display: flex;
 		align-items: center;
-	}
-	.m-auto {
 		margin: auto;
 	}
 	.wind-dir {

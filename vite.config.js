@@ -1,13 +1,11 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
+import Icons from 'unplugin-icons/vite'
 
 import path from 'path'
 
-/**
- * @type {import('vite').UserConfig}
- */
 const config = defineConfig({
-	plugins: [svelte()],
+	plugins: [svelte(), Icons({ compiler: 'svelte' })],
 	resolve: {
 		alias: {
 			src: path.resolve(__dirname, './src'),

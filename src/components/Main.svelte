@@ -1,8 +1,8 @@
 <script context="module">
-	import { default as SettingsIcon } from 'src/components/icons/Settings.svelte'
-	import { default as GithubIcon } from 'src/components/icons/Github.svelte'
+	import GithubIcon from '~icons/tabler/brand-github'
+	import SettingsIcon from '~icons/tabler/settings'
 
-	import { settings, weather } from 'src/stores'
+	import { settings } from 'src/stores'
 </script>
 
 <script>
@@ -24,14 +24,14 @@
 				class="settings"
 				alt="settings toggle"
 				on:click={() => (settingsNotOpened = !settingsNotOpened)}>
-				<SettingsIcon />
+				<SettingsIcon width="30" height="30" />
 			</a>
 
 			<a
 				href="https://github.com/istudyatuni/weather-site"
 				alt="github"
 				class="github">
-				<GithubIcon />
+				<GithubIcon width="30" height="30" />
 			</a>
 		</div>
 	</div>
@@ -55,7 +55,7 @@
 	.inline > a {
 		margin: 0 0.4em;
 	}
-	.settings {
+	.settings, .github {
 		color: var(--second-fg-color);
 	}
 </style>
