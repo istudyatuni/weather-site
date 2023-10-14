@@ -13,6 +13,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "preview": "vite build && vite preview",
     "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte' './**/*.css' './**/*.json'"
   },
   "dependencies": {

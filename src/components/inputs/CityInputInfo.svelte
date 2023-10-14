@@ -3,16 +3,22 @@
 </script>
 
 <script>
-	export let city = {}
+	export let city = {},
+		allow_delete = false
 
 	const dispatch = createEventDispatcher()
-	function select(e) {
-		if (e.type === 'keypress' && e.key !== 'Enter') {
-			// skip any keys except Enter
-			return
+	/** Dispatch 'name' event. If event is keypress, only Enter key is accepted */
+	function handler(name) {
+		return (e) => {
+			if (e.type === 'keypress' && e.key !== 'Enter') {
+				// skip any keys except Enter
+				return
+			}
+			dispatch(name, city)
 		}
-		dispatch('select', city)
 	}
+	let select = handler('select')
+	let deletion = handler('deletion')
 </script>
 
 <div
@@ -21,7 +27,15 @@
 	on:keypress={select}
 	role="button"
 	tabindex="0">
-	<div>{city.name}</div>
+	<div class="flex">
+		<span>{city.name}</span>
+		<span
+			class:hidden={!allow_delete}
+			on:click|stopPropagation={deletion}
+			on:keypress|stopPropagation={deletion}
+			role="button"
+			tabindex="0">&times;</span>
+	</div>
 	<div class="details">{city.admin || ''}</div>
 </div>
 
@@ -35,5 +49,12 @@
 	}
 	.details {
 		color: var(--second-fg-color);
+	}
+	.flex {
+		display: flex;
+		justify-content: space-between;
+	}
+	.hidden {
+		display: none;
 	}
 </style>

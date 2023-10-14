@@ -6,12 +6,15 @@
 
 	import CityInputInfo from 'src/components/inputs/CityInputInfo.svelte'
 
-	import { debug, weather, settings } from 'src/stores'
+	import { cache, debug, weather, settings } from 'src/stores'
+
+	const countRecentSearches = 5
 </script>
 
 <script>
 	let city_name = '',
-		showCitiesResult = false
+		showCitiesResult = false,
+		showRecentSearches = false
 
 	async function handleInput(e) {
 		if (e.key !== 'Enter' || city_name === '') {
@@ -24,7 +27,7 @@
 		}
 
 		weather.set('geocoding', {})
-		await searchByCityName(city_name)
+		await searchByCityName(city_name.trim())
 		showCitiesResult = true
 	}
 
@@ -33,14 +36,36 @@
 		settings.set('current_city', { lat, lon, name })
 		loadCityWeather(true)
 		showCitiesResult = false
+		add_search(city_name)
 		city_name = ''
+	}
+
+	function add_search(name) {
+		if ($cache.searches.find((s) => s.name === name) === undefined) {
+			$cache.searches.unshift({ name })
+			cache.set('searches', $cache.searches)
+		}
+	}
+
+	function remove_search(name) {
+		cache.set(
+			'searches',
+			$cache.searches.filter((s) => s.name !== name)
+		)
+	}
+
+	function hideDropdown() {
+		showCitiesResult = false
+		showRecentSearches = false
 	}
 </script>
 
 <input
 	bind:value={city_name}
 	on:keyup={handleInput}
-	on:input={() => (showCitiesResult = false)}
+	on:click={() => (showRecentSearches = true)}
+	on:focusin={() => (showRecentSearches = true)}
+	on:input={hideDropdown}
 	type="text"
 	name="search"
 	placeholder={$_('search_city.placeholder')} />
@@ -55,6 +80,18 @@
 	{:else}
 		<div class="no-cities-found">{$_('search_city.no_cities_found')}</div>
 	{/if}
+{/if}
+
+{#if showRecentSearches && !showCitiesResult && Array.isArray($cache.searches)}
+	<div class="cities-list">
+		{#each $cache.searches.slice(0, countRecentSearches) as city, i (i)}
+			<CityInputInfo
+				{city}
+				on:select={(e) => (city_name = e.detail.name)}
+				on:deletion={(e) => remove_search(e.detail.name)}
+				allow_delete />
+		{/each}
+	</div>
 {/if}
 
 <style>

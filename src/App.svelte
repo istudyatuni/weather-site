@@ -14,15 +14,14 @@
 
 	import { init_i18n } from 'src/i18n/i18n'
 
-	import { debug, settings, isApiLoading } from 'src/stores'
-	import { migrateSettings } from 'src/stores/settings'
+	import { debug, settings, isApiLoading, migrateStores } from 'src/stores'
 
 	import { startTimer } from 'src/utils/time'
 </script>
 
 <script>
 	async function initApi() {
-		migrateSettings()
+		migrateStores()
 		isApiLoading.set(true)
 		await loadCityWeather()
 		isApiLoading.set(false)
