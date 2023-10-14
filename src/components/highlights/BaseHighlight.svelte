@@ -35,6 +35,10 @@
 		font-size: 2.5em;
 		margin: 20px 0;
 	}
+	.value :global(.measure) {
+		color: var(--second-fg-color);
+		font-size: 0.4em;
+	}
 	.value:empty {
 		display: none;
 	}

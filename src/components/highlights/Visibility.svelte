@@ -14,12 +14,6 @@
 
 <BaseHighlight title={$_('highlights.visibility')}>
 	<svelte:fragment slot="value">
-		{value ?? '-.-'} <span>{$_(`highlights.measure.${km}`)}</span>
+		{value ?? '-.-'} <span class="measure">{$_(`highlights.measure.${km}`)}</span>
 	</svelte:fragment>
 </BaseHighlight>
-
-<style>
-	span {
-		font-size: 0.4em;
-	}
-</style>
