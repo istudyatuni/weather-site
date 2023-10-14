@@ -74,7 +74,7 @@
 		<Current />
 		<Main>
 			<Route>
-				<Route path="/info" fallback><Highlights /></Route>
+				<Route path="/"><Highlights /></Route>
 				<Route path="/settings"><Settings /></Route>
 				<Route path="/debug"><Debug /></Route>
 			</Route>
