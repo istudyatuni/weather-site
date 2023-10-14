@@ -11,7 +11,7 @@
 </script>
 
 <BaseHighlight title={$_('highlights.sun.title')}>
-	<svelte:fragment slot="content">
+	<div slot="content">
 		<p class="time">
 			<span>{$_('highlights.sun.sunrise')}:</span>
 			{sunrise ? formatTime(sunrise) : '--:--'}
@@ -20,7 +20,7 @@
 			<span>{$_('highlights.sun.sunset')}:</span>
 			{sunset ? formatTime(sunset) : '--:--'}
 		</p>
-	</svelte:fragment>
+	</div>
 </BaseHighlight>
 
 <style>

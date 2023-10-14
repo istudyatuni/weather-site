@@ -23,9 +23,7 @@
 		<p class="value">
 			<slot name="value" />
 		</p>
-		<div>
-			<slot name="content" />
-		</div>
+		<slot name="content" />
 	</div>
 </div>
 
