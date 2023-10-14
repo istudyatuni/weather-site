@@ -56,6 +56,10 @@
 		font-size: 2.5em;
 		margin: 20px 0;
 	}
+	.value :global(.top) {
+		position: absolute;
+		margin: 6px auto auto 5px;
+	}
 	.value :global(.measure) {
 		color: var(--second-fg-color);
 		font-size: 0.4em;

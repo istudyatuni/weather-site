@@ -19,10 +19,10 @@
 
 <div class="grid">
 	<WindStatus speed={data.wind?.speed} deg={data.wind?.deg} />
+	<UVIndex uv={data.uv_index} />
 	<SunriseSunset sunrise={data?.sunrise} sunset={data?.sunset} />
 	<Humidity percentage={data.main?.humidity} />
 	<Visibility meters={data.visibility} />
-	<UVIndex uv={data.uv_index} />
 	<AirQuality />
 </div>
 
