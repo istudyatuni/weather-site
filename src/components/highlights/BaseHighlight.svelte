@@ -8,7 +8,9 @@
 		<p class="value">
 			<slot name="value" />
 		</p>
-		<slot name="content" />
+		<div>
+			<slot name="content" />
+		</div>
 	</div>
 </div>
 
@@ -19,7 +21,11 @@
 		background-color: var(--main-bg-color);
 	}
 	.data {
-		padding: 0 0.5em;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-left: 0.5em;
+		padding-right: 2em;
 	}
 	.title {
 		color: var(--second-fg-color);

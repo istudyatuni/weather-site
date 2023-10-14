@@ -11,30 +11,24 @@
 </script>
 
 <BaseHighlight title={$_('highlights.wind_status')}>
-	<div class="inline" slot="content">
-		<div class="highlight-value">
-			{speed ?? '-.-'} <span>{$_('highlights.measure.m_in_s')}</span>
-		</div>
-		<div class="dir-wrapper m-auto">
-			<img
-				src="icons/arrow_compass.svg"
-				class="m-auto"
-				style:transform={`rotate(${deg}deg)`}
-				alt=""
-				width="30"
-				height="30" />
-			<span class="wind-dir">
-				{deg ? getWindDirection(deg) : '--'}
-			</span>
-		</div>
+	<div slot="value">
+		{speed ?? '-.-'} <span class="value-measure">{$_('highlights.measure.m_in_s')}</span>
+	</div>
+	<div class="dir-wrapper m-auto" slot="content">
+		<img
+			src="icons/arrow_compass.svg"
+			class="m-auto"
+			style:transform={`rotate(${deg}deg)`}
+			alt=""
+			width="30"
+			height="30" />
+		<span class="wind-dir">
+			{deg ? getWindDirection(deg) : '--'}
+		</span>
 	</div>
 </BaseHighlight>
 
 <style>
-	.inline {
-		display: flex;
-		padding-top: 1em;
-	}
 	.dir-wrapper {
 		display: flex;
 		align-items: center;
@@ -46,10 +40,7 @@
 		font-size: 1.4em;
 		margin-left: 15px;
 	}
-	.highlight-value {
-		font-size: 2.5em;
-	}
-	.highlight-value > span {
+	.value-measure {
 		font-size: 0.4em;
 	}
 </style>
