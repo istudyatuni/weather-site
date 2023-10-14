@@ -29,7 +29,7 @@
 	</div>
 </BaseHighlight>
 
-<style>
+<style lang="scss">
 	.wrapper {
 		margin-left: 0.5em;
 		margin-bottom: 2em;

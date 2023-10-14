@@ -82,10 +82,10 @@
 	</main>
 {/if}
 
-<style>
-	@media screen and (max-width: 980px) {
+<style lang="scss">
+	@media screen and (max-width: $layout-breakpoint) {
 	}
-	@media screen and (min-width: 980px) {
+	@media screen and (min-width: $layout-breakpoint) {
 		main {
 			display: grid;
 			grid-template-columns: 20em auto;

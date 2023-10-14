@@ -26,18 +26,20 @@
 	<AirQuality />
 </div>
 
-<style>
-	@media screen and (max-width: 550px) {
+<style lang="scss">
+	@use 'sass:map';
+
+	@media screen and (max-width: map.get($highlights-breakpoints, small)) {
 		.grid {
 			grid-template-columns: repeat(1, 1fr);
 		}
 	}
-	@media screen and (max-width: 1300px) and (min-width: 550px) {
+	@media screen and (max-width: map.get($highlights-breakpoints, big)) and (min-width: map.get($highlights-breakpoints, small)) {
 		.grid {
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
-	@media screen and (min-width: 1300px) {
+	@media screen and (min-width: map.get($highlights-breakpoints, big)) {
 		.grid {
 			grid-template-columns: repeat(3, 1fr);
 		}
