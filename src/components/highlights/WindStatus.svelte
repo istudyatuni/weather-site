@@ -40,7 +40,7 @@
 	.dir-wrapper {
 		display: flex;
 		align-items: center;
-		margin: auto;
+		margin-right: 2em;
 	}
 	.wind-dir {
 		font-size: 1.4em;

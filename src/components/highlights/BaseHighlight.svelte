@@ -40,7 +40,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding-left: 0.5em;
-		padding-right: 2em;
+		padding-right: 1em;
 	}
 	.title {
 		color: var(--second-fg-color);
