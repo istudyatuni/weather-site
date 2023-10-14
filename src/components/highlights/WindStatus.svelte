@@ -27,7 +27,11 @@
 			width="30"
 			height="30" />
 		<span class="wind-dir">
-			{deg ? getWindDirection(deg) : '--'}
+			{#if deg !== undefined}
+				{$_('highlights.compass_directions.' + getWindDirection(deg))}
+			{:else}
+				--
+			{/if}
 		</span>
 	</div>
 </BaseHighlight>
@@ -41,6 +45,7 @@
 	.wind-dir {
 		font-size: 1.4em;
 		margin-left: 15px;
+		color: var(--second-fg-color);
 	}
 	.value-measure {
 		font-size: 0.4em;

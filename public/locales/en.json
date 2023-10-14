@@ -20,6 +20,16 @@
 			"m_in_s": "m/s",
 			"km": "km",
 			"m": "m"
+		},
+		"compass_directions": {
+			"n": "N",
+			"ne": "NE",
+			"e": "E",
+			"se": "SE",
+			"s": "S",
+			"sw": "SW",
+			"w": "W",
+			"nw": "NW"
 		}
 	},
 	"settings": {
