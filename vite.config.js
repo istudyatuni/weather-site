@@ -37,6 +37,7 @@ const config = defineConfig({
 			},
 		},
 		postcss,
+		devSourcemap: true,
 	},
 })
 
