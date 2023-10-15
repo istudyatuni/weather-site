@@ -19,7 +19,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite build && vite preview",
-    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte' './**/*.css' './**/*.json'"
+    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte' './**/*.css' './**/*.json'",
+    "migrate-locales": "python scripts/migrate_locales.py"
   },
   "dependencies": {
     "svelte-i18n": "^3.3.13",

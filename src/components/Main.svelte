@@ -4,6 +4,8 @@
 	import SettingsIcon from '~icons/tabler/settings'
 
 	import { settings } from 'src/stores'
+
+	import { formatMapLink } from 'src/utils/maps'
 </script>
 
 <script>
@@ -14,19 +16,18 @@
 	// and vice versa
 	let settingsNotOpened = true
 
-	$: mapLinkParams = new URLSearchParams({
-		mlat: $settings.current_city.lat,
-		mlon: $settings.current_city.lon,
-	})
+	$: map_link = formatMapLink(
+		$settings.maps_provider,
+		$settings.current_city.lat,
+		$settings.current_city.lon
+	)
 </script>
 
 <div class="grid-item">
 	<div class="inline">
 		<div class="city">
 			<h4 class="city-name">{$settings.current_city.name}</h4>
-			<a
-				class="map"
-				href="http://www.openstreetmap.org/?{mapLinkParams.toString()}">
+			<a class="map" href={map_link}>
 				<MapIcon />
 			</a>
 		</div>

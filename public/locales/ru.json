@@ -49,6 +49,9 @@
 		},
 		"language": {
 			"title": "Язык"
+		},
+		"maps": {
+			"title": "Карты"
 		}
 	},
 	"weather": {

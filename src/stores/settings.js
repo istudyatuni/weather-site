@@ -3,7 +3,7 @@ import { localStore } from 'svelte-storages'
 import { migrateStore } from 'src/stores/migration'
 
 const initial = {
-	version: 1,
+	version: 2,
 	theme: 'system',
 	locale: undefined,
 	current_city: {
@@ -13,6 +13,8 @@ const initial = {
 	},
 	// get client timezone
 	tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+	/** @type {import('src/utils/types').OsmProvider} */
+	maps_provider: 'osm',
 }
 
 /** Settings store */

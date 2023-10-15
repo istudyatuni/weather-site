@@ -6,6 +6,7 @@
 	import Select from 'src/components/inputs/Select.svelte'
 
 	import { settings } from 'src/stores'
+	import { maps_providers } from 'src/utils/maps'
 </script>
 
 <script>
@@ -18,6 +19,10 @@
 	let localesSelectValues = Object.entries(localesNames).map((e) => ({
 		value: e[0],
 		name: e[1],
+	}))
+	let mapProvicersSelectValues = Object.values(maps_providers).map((e) => ({
+		name: e.name,
+		value: e.key,
 	}))
 </script>
 
@@ -42,6 +47,13 @@
 		options={localesSelectValues}
 		bind:value={$settings.locale}
 		on:change={() => (reloadRequired = true)} />
+</div>
+
+<div>
+	<Select
+		title={$_('settings.maps.title')}
+		options={mapProvicersSelectValues}
+		bind:value={$settings.maps_provider} />
 </div>
 
 <style>
