@@ -1,13 +1,13 @@
 import path from 'path'
 
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import Icons from 'unplugin-icons/vite'
 
 import * as postcss from './postcss.config.js'
 
 const config = defineConfig({
-	plugins: [svelte(), Icons({ compiler: 'svelte' })],
+	plugins: [svelte(), Icons({ compiler: 'svelte' }), splitVendorChunkPlugin()],
 	resolve: {
 		alias: {
 			src: path.resolve(__dirname, './src'),
@@ -25,6 +25,7 @@ const config = defineConfig({
 		minify: true,
 		outDir: 'build',
 	},
+	envDir: '.env',
 	base: '/weather-site/',
 	optimizeDeps: {
 		exclude: ['tinro'],

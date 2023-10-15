@@ -1,6 +1,4 @@
 <script context="module">
-	import { loadVersion } from 'src/api/debug'
-
 	import { settings, log } from 'src/stores'
 </script>
 
@@ -9,9 +7,7 @@
 </script>
 
 <div class="wrapper">
-	{#await loadVersion() then version}
-		<pre>Current version build time: {version}</pre>
-	{/await}
+	<pre>Current version build time: {import.meta.env.VITE_VERSION}</pre>
 
 	<h4><pre>LocalStorage.settings:</pre></h4>
 	<ul>

@@ -21,10 +21,10 @@ jobs:
           owm: ${{ secrets.OWM_KEY }}
           tg_token: ${{ secrets.TG_TOKEN }}
         run: |
+          export VITE_VERSION="$(date -R -u)"
           yarn build
           echo $owm > build/key.txt
           echo $tg_token >> build/key.txt
-          echo "$(date -R -u)" > build/version.txt
 
       - uses: peaceiris/actions-gh-pages@v3
         with:

@@ -25,7 +25,10 @@ function registerMany(locales) {
 
 export function init_i18n() {
 	if (get(settings).locale === undefined) {
-		settings.set('locale', getLocaleShortName(browserLocale()) || fallbackLocale)
+		settings.set(
+			'locale',
+			getLocaleShortName(browserLocale()) || fallbackLocale
+		)
 	}
 
 	registerMany(localesList)
