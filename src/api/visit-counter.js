@@ -1,6 +1,6 @@
-import { visit } from 'src/stores'
-
 import { get } from 'svelte/store'
+
+import { visit } from 'src/stores'
 
 async function fetchToken() {
 	const response = await fetch('key.txt')

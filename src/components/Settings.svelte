@@ -6,6 +6,7 @@
 	import Select from 'src/components/inputs/Select.svelte'
 
 	import { settings } from 'src/stores'
+
 	import { maps_providers } from 'src/utils/maps'
 </script>
 

@@ -6,7 +6,7 @@
 
 	import CityInputInfo from 'src/components/inputs/CityInputInfo.svelte'
 
-	import { cache, debug, weather, settings } from 'src/stores'
+	import { cache, debug, settings, weather } from 'src/stores'
 
 	const maxListItems = 5
 </script>

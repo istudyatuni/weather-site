@@ -1,8 +1,9 @@
 import { get } from 'svelte/store'
+
 import { settings, weather } from 'src/stores'
 
-import { logger } from 'src/utils/log'
-import { getIconIdByWmo } from '../utils/icons'
+import { getIconIdByWmo } from 'src/utils/icons'
+import { logger } from 'src/utils'
 
 const BASE = 'https://api.open-meteo.com/v1/forecast'
 const refreshMinutes = 20

@@ -1,7 +1,7 @@
+import isMobile from 'is-mobile'
 import { localStore } from 'svelte-storages'
 
 import { migrateStore } from 'src/stores/migration'
-import isMobile from 'is-mobile'
 
 const initial = {
 	version: 2,

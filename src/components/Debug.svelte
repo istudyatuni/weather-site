@@ -1,5 +1,5 @@
 <script context="module">
-	import { settings, log } from 'src/stores'
+	import { log, settings } from 'src/stores'
 </script>
 
 <script>

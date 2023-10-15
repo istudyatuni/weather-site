@@ -6,7 +6,7 @@
 	import { time, weather } from 'src/stores'
 
 	import { getIcon } from 'src/utils/icons'
-	import { getWeekday } from 'src/utils/dates'
+	import { getWeekday } from 'src/utils'
 
 	const defaultData = { weather: { icon: '01d', weathercode: 1 } }
 </script>

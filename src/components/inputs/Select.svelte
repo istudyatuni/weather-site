@@ -1,6 +1,6 @@
 <script>
 	export let title = '',
-		/** @type {{value: string, name: any}[]} [description] */
+		/** @type {{value: string, name: any}[]} */
 		options = [],
 		value = ''
 </script>

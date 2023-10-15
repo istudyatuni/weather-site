@@ -1,6 +1,7 @@
-import { get } from 'svelte/store'
-import { settings, weather } from 'src/stores'
-import { logger } from 'src/utils/log'
+import { weather } from 'src/stores'
+
+import { getLocale } from 'src/utils'
+import { logger } from 'src/utils'
 
 const BASE = 'https://geocoding-api.open-meteo.com/v1/search'
 const defaultSearchCount = 5
@@ -8,7 +9,7 @@ const defaultSearchCount = 5
 export async function searchByCityName(name, count = defaultSearchCount) {
 	const params = new URLSearchParams()
 	params.set('count', count)
-	params.set('language', get(settings).locale)
+	params.set('language', getLocale())
 	params.set('name', name)
 
 	const response = await fetch(BASE + '?' + params.toString())
