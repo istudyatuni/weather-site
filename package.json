@@ -28,6 +28,7 @@
     "migrate-locales": "python scripts/migrate_locales.py"
   },
   "dependencies": {
+    "is-mobile": "^4.0.0",
     "svelte-i18n": "^3.3.13",
     "svelte-storages": "^0.0.1",
     "tinro": "^0.6.12"
