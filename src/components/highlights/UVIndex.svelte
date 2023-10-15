@@ -8,7 +8,7 @@
 	export let uv = 0
 
 	let bar_width_px = 0
-	$: uv_scale = bar_width_px / 11
+	$: uv_scale = (bar_width_px - 6) / 11
 </script>
 
 <BaseHighlight
@@ -42,7 +42,7 @@
 		margin-bottom: 6px;
 	}
 	.icon > .pointer {
-		width: 0.4em;
+		width: 6px;
 		height: 3em;
 		border-radius: 0.2em;
 		background-color: var(--uv-bar-color);
