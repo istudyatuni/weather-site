@@ -19,8 +19,8 @@ export function migrateStore(store, initial) {
 export function updateFields(ini, old, acc) {
 	let keys = new Set([...Object.keys(ini), ...Object.keys(old)])
 	for (let k of keys) {
-		let iniv = ini[k]
-		let oldv = old[k]
+		const iniv = ini[k]
+		const oldv = old[k]
 
 		if (typeof iniv === 'undefined') {
 			// new value not defined
@@ -38,9 +38,9 @@ export function updateFields(ini, old, acc) {
 			} else {
 				// new value is complex object
 				acc[k] = {}
-				updateFields(iniv, old[k], acc[k])
+				updateFields(iniv, oldv, acc[k])
 			}
-		} else if (typeof iniv !== typeof acc[k]) {
+		} else if (typeof iniv !== typeof oldv) {
 			// new type of value, we want to replace it
 			acc[k] = iniv
 		} else {
