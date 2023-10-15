@@ -4,9 +4,10 @@
 		position = 'top'
 </script>
 
-<div class="tooltip {position}">
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<div class="tooltip {position}" tabindex="0" >
 	<slot />
-	<div class="text">{text}</div>
+	<div class="text" role="tooltip">{text}</div>
 </div>
 
 <style lang="scss">
@@ -77,7 +78,8 @@
 	}
 
 	/* Show the tooltip text when you mouse over the tooltip container */
-	.tooltip:hover .text {
+	.tooltip:hover .text,
+	.tooltip:focus .text {
 		visibility: visible;
 		opacity: 1;
 	}

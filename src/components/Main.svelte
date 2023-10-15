@@ -33,7 +33,7 @@
 			<h4 class="city-name">{$settings.current_city.name}</h4>
 			<a class="map" href={map_link}>
 				<Tooltip position="right" text={$_('header.maps.tooltip')}>
-					<MapIcon />
+					<MapIcon width="20" height="20" />
 				</Tooltip>
 			</a>
 		</div>
@@ -43,6 +43,7 @@
 				href={settingsNotOpened ? '/' : '/settings'}
 				class="settings"
 				alt="settings toggle"
+				tabindex="0"
 				on:click={() => (settingsNotOpened = !settingsNotOpened)}>
 				<SettingsIcon width="30" height="30" />
 			</a>
@@ -50,7 +51,8 @@
 			<a
 				href="https://github.com/istudyatuni/weather-site"
 				alt="github"
-				class="github">
+				class="github"
+				tabindex="0">
 				<GithubIcon width="30" height="30" />
 			</a>
 		</div>
