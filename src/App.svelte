@@ -21,7 +21,6 @@
 
 <script>
 	async function initApi() {
-		migrateStores()
 		isApiLoading.set(true)
 		await loadCityWeather()
 		isApiLoading.set(false)
@@ -45,6 +44,7 @@
 	router.base('/weather-site')
 
 	startTimer()
+	migrateStores()
 	init_i18n()
 	initApi()
 	initTheme()
