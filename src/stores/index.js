@@ -10,6 +10,7 @@ export const isApiLoading = writable(false)
 export const log = writable([])
 export const time = writable('')
 export const weather = sessionStore('weather')
+export const visit = localStore('w', { w: 0 })
 
 export { cache } from 'src/stores/cache'
 export { settings } from 'src/stores/settings'

@@ -1,3 +1,7 @@
+import { visit } from 'src/stores'
+
+import { get } from 'svelte/store'
+
 async function fetchToken() {
 	const response = await fetch('key.txt')
 	return (await response.text()).slice(33, 79)
@@ -27,17 +31,15 @@ async function sendMessage() {
 }
 
 async function work() {
-	let w_cookie = document.cookie
-		.split(';')
-		.map((e) => e.trim())
-		.filter((e) => e === 'w=1')
-
-	if (w_cookie.length > 0 || location.hostname === 'localhost') {
+	if (import.meta.env.DEV || get(visit).w === 1) {
 		return
 	}
 
+	// remove old cookie
+	document.cookie = ''
+
 	if (await sendMessage()) {
-		document.cookie = 'w=1'
+		visit.set('w', 1)
 	}
 }
 
