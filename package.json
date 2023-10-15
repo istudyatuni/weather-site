@@ -21,7 +21,10 @@
     "test": "vitest",
     "build": "vite build",
     "preview": "vite build && vite preview",
-    "format": "prettier --write --plugin-search-dir=. './**/*.js' './**/*.svelte' './**/*.css' './**/*.json'",
+    "format": "yarn format:run --write",
+    "format:check": "yarn format:run --check",
+    "format:run": "prettier './**/*.js' './**/*.svelte' './**/*.css' './**/*.json'",
+    "check": "yarn format:check && yarn test run",
     "migrate-locales": "python scripts/migrate_locales.py"
   },
   "dependencies": {
