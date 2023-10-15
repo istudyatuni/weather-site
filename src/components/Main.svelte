@@ -1,5 +1,6 @@
 <script context="module">
 	import GithubIcon from '~icons/tabler/brand-github'
+	import MapIcon from '~icons/tabler/map'
 	import SettingsIcon from '~icons/tabler/settings'
 
 	import { settings } from 'src/stores'
@@ -12,11 +13,23 @@
 	// <a href="/" /> will open <Route path="/settings" />
 	// and vice versa
 	let settingsNotOpened = true
+
+	$: mapLinkParams = new URLSearchParams({
+		mlat: $settings.current_city.lat,
+		mlon: $settings.current_city.lon,
+	})
 </script>
 
 <div class="grid-item">
 	<div class="inline">
-		<h4 class="city">{$settings.current_city.name}</h4>
+		<div class="city">
+			<h4 class="city-name">{$settings.current_city.name}</h4>
+			<a
+				class="map"
+				href="http://www.openstreetmap.org/?{mapLinkParams.toString()}">
+				<MapIcon />
+			</a>
+		</div>
 
 		<div class="inline">
 			<a
@@ -45,7 +58,16 @@
 		background-color: var(--second-bg-color);
 	}
 	.city {
+		display: flex;
+		align-items: stretch;
+	}
+	.city-name {
 		margin-top: 0;
+	}
+	.map {
+		margin-left: 8px;
+		color: var(--second-fg-color);
+		cursor: pointer;
 	}
 	.inline {
 		display: flex;

@@ -60,6 +60,7 @@
 		// (7.7, 15 + 2/5, 23.1, 30 + 4/5, 38 + 1/2, 46 + 1/5, 53.9, 61 + 3/5, 69.3, 77, 84.7, 92 + 2/5)
 		//
 		// colors from: https://www.sciencedirect.com/science/article/pii/S2666469023000210, Appendix C
+		// prettier-ignore
 		background: linear-gradient(
 			90deg,
 			#658d1b 0%, // duplicate for start

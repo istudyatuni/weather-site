@@ -5,7 +5,8 @@
 </script>
 
 <script>
-	export let title, help
+	export let title,
+		help = null
 </script>
 
 <div class="wrapper">
@@ -14,7 +15,7 @@
 		{#if help}
 			<span class="help">
 				<Tooltip text={help}>
-					<Question slot="under" width="20" height="20" />
+					<Question width="20" height="20" />
 				</Tooltip>
 			</span>
 		{/if}

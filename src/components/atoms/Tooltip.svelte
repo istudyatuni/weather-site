@@ -3,7 +3,7 @@
 </script>
 
 <div class="tooltip">
-	<slot name="under" />
+	<slot />
 	<div class="text">{text}</div>
 </div>
 
