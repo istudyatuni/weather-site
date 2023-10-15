@@ -4,6 +4,11 @@
 		"placeholder": "Search for the sity",
 		"no_cities_found": "No cities found"
 	},
+	"header": {
+		"maps": {
+			"tooltip": "Open map"
+		}
+	},
 	"highlights": {
 		"title": "Today's highlights",
 		"uv_index": {

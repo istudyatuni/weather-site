@@ -1,7 +1,11 @@
 <script context="module">
+	import { _ } from 'svelte-i18n'
+
 	import GithubIcon from '~icons/tabler/brand-github'
 	import MapIcon from '~icons/tabler/map'
 	import SettingsIcon from '~icons/tabler/settings'
+
+	import Tooltip from 'src/components/atoms/Tooltip.svelte'
 
 	import { settings } from 'src/stores'
 
@@ -28,7 +32,9 @@
 		<div class="city">
 			<h4 class="city-name">{$settings.current_city.name}</h4>
 			<a class="map" href={map_link}>
-				<MapIcon />
+				<Tooltip position="right" text={$_('header.maps.tooltip')}>
+					<MapIcon />
+				</Tooltip>
 			</a>
 		</div>
 

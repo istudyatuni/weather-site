@@ -4,6 +4,11 @@
 		"placeholder": "Поиск города",
 		"no_cities_found": "Городов не найдено"
 	},
+	"header": {
+		"maps": {
+			"tooltip": "Открыть карту"
+		}
+	},
 	"highlights": {
 		"title": "Погода сегодня",
 		"uv_index": {
