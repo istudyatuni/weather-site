@@ -29,9 +29,17 @@ export function updateFields(ini, old, acc) {
 			// old value not defined
 			acc[k] = iniv
 		} else if (typeof iniv === 'object' && iniv !== null) {
-			// new value is complex object
-			acc[k] = {}
-			updateFields(iniv, old[k], acc[k])
+			if (typeof oldv === 'object') {
+				if (oldv !== null) {
+					acc[k] = oldv
+				} else {
+					acc[k] = iniv
+				}
+			} else {
+				// new value is complex object
+				acc[k] = {}
+				updateFields(iniv, old[k], acc[k])
+			}
 		} else if (typeof iniv !== typeof acc[k]) {
 			// new type of value, we want to replace it
 			acc[k] = iniv
