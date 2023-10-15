@@ -1,18 +1,52 @@
 <script>
-	export let text = ''
+	export let text = '',
+		/** @type {import("src/components/types").TooltipPosition} */
+		position = 'top'
 </script>
 
-<div class="tooltip">
+<div class="tooltip {position}">
 	<slot />
 	<div class="text">{text}</div>
 </div>
 
-<style>
+<style lang="scss">
 	/* https://www.w3schools.com/howto/howto_css_tooltip.asp */
 
 	.tooltip {
 		position: relative;
 		display: inline-block;
+	}
+
+	@each $variant in top, bottom, left, right {
+		.tooltip.#{$variant} .text {
+			$top-bot-bottom: 125%;
+			@if $variant == top {
+				bottom: $top-bot-bottom;
+			}
+			@if $variant == bottom {
+				bottom: -1 * $top-bot-bottom;
+			}
+
+			$centering-margin-left: -57px;
+			$le-ri-margin-left-offset: 85px;
+			@if $variant == left {
+				margin-left: $centering-margin-left - $le-ri-margin-left-offset;
+			}
+			@if $variant == right {
+				margin-left: $centering-margin-left + $le-ri-margin-left-offset;
+			}
+			@if $variant == left or $variant == right {
+				bottom: 0;
+			}
+			@if $variant == top or $variant == bottom {
+				left: $centering-margin-left;
+			}
+		}
+
+		.tooltip.#{$variant} .text::after {
+			top: 100%;
+			left: 0%;
+		}
 	}
 
 	.tooltip .text {
@@ -27,9 +61,6 @@
 		/* Position the tooltip text */
 		position: absolute;
 		z-index: 1;
-		bottom: 125%;
-		left: 50%;
-		margin-left: -60px;
 
 		/* Fade in tooltip */
 		opacity: 0;
@@ -40,8 +71,6 @@
 	.tooltip .text::after {
 		content: '';
 		position: absolute;
-		top: 100%;
-		left: 0%;
 		width: 100%;
 		height: 30%;
 		opacity: 0;
