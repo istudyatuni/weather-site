@@ -1,3 +1,3 @@
 # Weather site
 
-Simple site with weather build with Svelte and using [Openweathermap](https://openweathermap.org) API.
+Simple site with weather built with Svelte and using [Open-Meteo](https://open-meteo.com) API.
