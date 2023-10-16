@@ -91,6 +91,7 @@
 	on:keyup={handleInput}
 	on:click={() => (showRecentSearches = true)}
 	on:focusin={() => (showRecentSearches = true)}
+	on:input={() => (showCitiesResult = false)}
 	type="text"
 	name="search"
 	placeholder={$_('search_city.placeholder')} />
