@@ -10,9 +10,9 @@ jobs:
     environment: github-pages
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: 'latest'
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - name: Build
