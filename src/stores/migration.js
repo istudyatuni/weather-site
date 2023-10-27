@@ -1,50 +1,26 @@
 import { get } from 'svelte/store'
 
-export function migrateStore(store, initial) {
+/**
+ * Migrate `store` using `migrations` to `version`
+ * @param  {import('svelte/store').Writable} store Store to migrate
+ * @param  {{ [key: number]: (data: object, store: import('svelte/store').Writable) => {}}}
+ * migrations Migrations to apply
+ * @param  {number} version    To which version migrate
+ */
+export function migrateStore(store, migrations, version) {
 	let old = get(store)
 	// version could be undefined
-	if ((old.version ?? 0) === initial.version) {
+	if ((old.version ?? 0) === version) {
 		return
 	}
-	let updated = {
-		version: initial.version,
-	}
-	updateFields(initial, old, updated)
-	for (let [k, v] of Object.entries(updated)) {
-		store.set(k, v)
-	}
-}
-
-/** Merge ini and old, put to acc */
-export function updateFields(ini, old, acc) {
-	let keys = new Set([...Object.keys(ini), ...Object.keys(old)])
-	for (let k of keys) {
-		const iniv = ini[k]
-		const oldv = old[k]
-
-		if (typeof iniv === 'undefined') {
-			// new value not defined
-			acc[k] = oldv
-		} else if (typeof oldv === 'undefined') {
-			// old value not defined
-			acc[k] = iniv
-		} else if (typeof iniv === 'object' && iniv !== null) {
-			if (typeof oldv === 'object') {
-				if (oldv !== null) {
-					acc[k] = oldv
-				} else {
-					acc[k] = iniv
-				}
-			} else {
-				// new value is complex object
-				acc[k] = {}
-				updateFields(iniv, oldv, acc[k])
-			}
-		} else if (typeof iniv !== typeof oldv) {
-			// new type of value, we want to replace it
-			acc[k] = iniv
-		} else {
-			acc[k] = oldv
-		}
-	}
+	Object.keys(migrations)
+		.map((v) => parseInt(v))
+		.filter((v) => v > old.version && v <= version)
+		.sort()
+		.forEach((v) => {
+			store.set('version', v)
+			// its possible case that `old` will be changed inside migration,
+			// and this will affect next migrations
+			migrations[v](old, store)
+		})
 }

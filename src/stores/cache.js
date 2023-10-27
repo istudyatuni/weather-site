@@ -8,10 +8,12 @@ const initial = {
 	searches: [],
 }
 
+const migrations = {}
+
 /** Cache store */
 export const cache = localStore('cache', initial)
 
 /** Migrate cache */
 export function migrateCache() {
-	migrateStore(cache, initial)
+	migrateStore(cache, migrations, initial.version)
 }
