@@ -5,7 +5,7 @@
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<div class="tooltip {position}" tabindex="0" >
+<div class="tooltip {position}" tabindex="0">
 	<slot />
 	<div class="text" role="tooltip">{text}</div>
 </div>

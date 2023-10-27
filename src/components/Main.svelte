@@ -30,7 +30,10 @@
 <div class="grid-item">
 	<div class="inline">
 		<div class="city">
-			<h4 class="city-name">{$settings.current_city.name}</h4>
+			<div class="city-name">
+				<h4>{$settings.current_city.name}</h4>
+				<span>{$settings.current_city.country}</span>
+			</div>
 			<a class="map" href={map_link}>
 				<Tooltip position="right" text={$_('header.maps.tooltip')}>
 					<MapIcon width="20" height="20" />
@@ -61,7 +64,7 @@
 	<slot />
 </div>
 
-<style>
+<style lang="scss">
 	.grid-item {
 		padding: 1.5em;
 		background-color: var(--second-bg-color);
@@ -71,7 +74,13 @@
 		align-items: stretch;
 	}
 	.city-name {
-		margin-top: 0;
+		& > h4 {
+			margin-top: 0;
+			margin-bottom: 0.1em;
+		}
+		& > span {
+			color: var(--second-fg-color);
+		}
 	}
 	.map {
 		margin-left: 8px;

@@ -36,7 +36,12 @@ function mapGeocodingResponse(list) {
 	return list.map((e) => {
 		let res = {
 			id: e.id,
+			// display full name, used in search result's dropdown
 			name: [e.name, e.country].filter((v) => (v ?? '') !== '').join(', '),
+			details: {
+				name: e.name,
+				country: e.country,
+			},
 			lat: e.latitude,
 			lon: e.longitude,
 		}

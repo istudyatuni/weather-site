@@ -50,8 +50,12 @@
 	}
 
 	function handleCitySelect(e) {
-		let { lat, lon, name } = e.detail
-		settings.set('current_city', { lat, lon, name })
+		let {
+			lat,
+			lon,
+			details: { name, country },
+		} = e.detail
+		settings.set('current_city', { lat, lon, name, country })
 		loadCityWeather(true)
 		hideDropdown()
 		add_search(city_name)
