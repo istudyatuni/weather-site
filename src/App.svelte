@@ -8,7 +8,6 @@
 	import Current from 'src/components/Current.svelte'
 	import Debug from 'src/components/Debug.svelte'
 	import Highlights from 'src/components/Highlights.svelte'
-	import LoadingHeader from 'src/components/LoadingHeader.svelte'
 	import Main from 'src/components/Main.svelte'
 	import Settings from 'src/components/Settings.svelte'
 
@@ -68,7 +67,6 @@
 	}
 </script>
 
-<LoadingHeader />
 {#if !$isLoading}
 	<main>
 		<Current />
