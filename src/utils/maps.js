@@ -28,6 +28,8 @@ export function formatMapLink(provider, lat, lon) {
 		params.append('mlon', lon)
 	} else if (provider === 'google') {
 		params.append('q', [lat, lon])
+	} else {
+		return ''
 	}
 	let base = maps_providers.find((p) => p.key === provider).base_url
 	return base + params.toString()
