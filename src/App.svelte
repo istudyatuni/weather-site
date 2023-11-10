@@ -6,8 +6,8 @@
 	import { count } from 'src/api/visit-counter'
 
 	import Current from 'src/components/Current.svelte'
-	import Debug from 'src/components/Debug.svelte'
 	import Highlights from 'src/components/Highlights.svelte'
+	import Lazy from 'src/components/Lazy.svelte'
 	import Main from 'src/components/Main.svelte'
 	import Settings from 'src/components/Settings.svelte'
 
@@ -74,7 +74,9 @@
 			<Route>
 				<Route path="/"><Highlights /></Route>
 				<Route path="/settings"><Settings /></Route>
-				<Route path="/debug"><Debug /></Route>
+				<Route path="/debug">
+					<Lazy component={import('src/components/Debug.svelte')} />
+				</Route>
 			</Route>
 		</Main>
 	</main>
