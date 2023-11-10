@@ -3,9 +3,10 @@ import { get } from 'svelte/store'
 /**
  * Migrate `store` using `migrations` to `version`
  * @param  {import('svelte/store').Writable} store Store to migrate
- * @param  {{ [key: number]: (data: object, store: import('svelte/store').Writable) => {}}}
- * migrations Migrations to apply
- * @param  {number} version    To which version migrate
+ * @param  {{
+ *   [key: number]: (data: object, store: import('svelte/store').Writable) => {}
+ * }} migrations Migrations to apply
+ * @param  {number} version To which version migrate
  */
 export function migrateStore(store, migrations, version) {
 	let old = get(store)
