@@ -1,3 +1,7 @@
+<script context="module">
+	import { is_array, is_object } from "src/utils/check";
+</script>
+
 <script>
 	/** Could be any object. Single values, arrays and objects are supported */
 	export let object = []
@@ -9,13 +13,6 @@
 	$: object_is_empty =
 		(object_is_array && object.length === 0) ||
 		(is_object(object) && object_entries.length === 0)
-
-	function is_object(o) {
-		return o.constructor === Object
-	}
-	function is_array(o) {
-		return o instanceof Array
-	}
 </script>
 
 <div class:hidden={object_is_empty}>

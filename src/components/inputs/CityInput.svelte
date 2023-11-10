@@ -7,6 +7,7 @@
 	import CityInputInfo from 'src/components/inputs/CityInputInfo.svelte'
 
 	import { cache, debug, settings, weather } from 'src/stores'
+	import { is_array } from 'src/utils/check'
 
 	const maxListItems = 5
 </script>
@@ -101,7 +102,7 @@
 	placeholder={$_('search_city.placeholder')} />
 
 {#if showCitiesResult}
-	{#if Array.isArray($weather.geocoding)}
+	{#if is_array($weather.geocoding)}
 		<div class="cities-list">
 			{#each $weather.geocoding as city, i (i)}
 				<CityInputInfo {city} on:select={handleCitySelect} />
@@ -112,7 +113,7 @@
 	{/if}
 {/if}
 
-{#if showRecentSearches && !showCitiesResult && Array.isArray($cache.searches)}
+{#if showRecentSearches && !showCitiesResult && is_array($cache.searches)}
 	<div class="cities-list">
 		{#each recentSearches.slice(0, maxListItems) as city, i (i)}
 			<CityInputInfo
