@@ -75,7 +75,7 @@
 				<Route path="/"><Highlights /></Route>
 				<Route path="/settings"><Settings /></Route>
 				<Route path="/debug">
-					<Lazy component={import('src/components/Debug.svelte')} />
+					<Lazy component={import('src/components/debug/Debug.svelte')} />
 				</Route>
 			</Route>
 		</Main>
