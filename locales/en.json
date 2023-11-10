@@ -1,0 +1,94 @@
+{
+	"loading": "Loading",
+	"search_city": {
+		"placeholder": "Search for the sity",
+		"no_cities_found": "No cities found"
+	},
+	"header": {
+		"maps": {
+			"tooltip": "Open map"
+		}
+	},
+	"highlights": {
+		"title": "Today's highlights",
+		"uv_index": {
+			"title": "UV Index",
+			"help": "Daily UV index"
+		},
+		"wind_status": "Wind Status",
+		"sun": {
+			"title": "Sunrise & Sunset",
+			"sunrise": "Sunrise",
+			"sunset": "Sunset"
+		},
+		"humidity": {
+			"title": "Humidity",
+			"help": "Relative, at 2m above ground"
+		},
+		"visibility": "Visibility",
+		"air_quality": "Air Quality",
+		"measure": {
+			"m_in_s": "m/s",
+			"km": "km",
+			"m": "m"
+		},
+		"compass_directions": {
+			"n": "N",
+			"ne": "NE",
+			"e": "E",
+			"se": "SE",
+			"s": "S",
+			"sw": "SW",
+			"w": "W",
+			"nw": "NW"
+		}
+	},
+	"settings": {
+		"title": "Settings",
+		"reload_required": "Please reload page",
+		"theme": {
+			"title": "Theme",
+			"light": "Light",
+			"dark": "Dark",
+			"system": "System"
+		},
+		"language": {
+			"title": "Language"
+		},
+		"maps": {
+			"title": "Maps"
+		}
+	},
+	"weather": {
+		"wmo_description": {
+			"0": "Clear",
+			"1": "Mainly clear",
+			"2": "Partly cloudy",
+			"3": "Overcast",
+			"45": "Fog",
+			"48": "Depositing rime fog",
+			"51": "Light drizzle",
+			"53": "Moderate drizzle",
+			"55": "Drizzle dense intensity",
+			"56": "Light freezing drizzle",
+			"57": "Freezing drizzle dense intensity",
+			"61": "Slight rain",
+			"63": "Moderate rain",
+			"65": "Heavy intensity rain",
+			"66": "Light freezing rain",
+			"67": "Heavy intensity freezing rain",
+			"71": "Slight snow fall",
+			"73": "Moderate snow fall",
+			"75": "Heavy intensity snow fall",
+			"77": "Snow grains",
+			"80": "Slight rain showers",
+			"81": "Moderate rain showers",
+			"82": "Violent rain showers",
+			"85": "Slight snow showers",
+			"86": "Heavy snow showers",
+			"95": "Thunderstorm",
+			"96": "Thunderstorm with slight hail",
+			"99": "Thunderstorm with heavy hail"
+		}
+	}
+}

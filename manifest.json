@@ -1,0 +1,1 @@
+{"name":"Weather","short_name":"Weather","start_url":"/weather-site/","display":"standalone","background_color":"#26282b","lang":"en","scope":"/weather-site/","icons":[{"src":"icons/pwa.svg","type":"image/svg+xml","sizes":"150x150"}]}
