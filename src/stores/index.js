@@ -7,6 +7,7 @@ import { migrateSettings } from 'src/stores/settings'
 
 export const debug = writable(false)
 export const isApiLoading = writable(false)
+export const api_log = writable([])
 export const log = writable([])
 export const time = writable('')
 export const weather = sessionStore('weather')

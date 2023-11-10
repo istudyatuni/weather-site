@@ -1,7 +1,7 @@
 <script context="module">
 	import ObjectPrint from 'src/components/debug/ObjectPrint.svelte'
 
-	import { cache, log, settings } from 'src/stores'
+	import { cache, api_log, log, settings } from 'src/stores'
 </script>
 
 <div class="wrapper">
@@ -9,7 +9,8 @@
 
 	<ObjectPrint name="LocalStorage.settings" object={$settings} />
 	<ObjectPrint name="LocalStorage.cache" object={$cache} />
-	<ObjectPrint name="API call log" object={$log.map((e) => decodeURI(e))} />
+	<ObjectPrint name="Log" object={$log} />
+	<ObjectPrint name="API call log" object={$api_log.map((e) => decodeURI(e))} />
 </div>
 
 <style lang="scss">

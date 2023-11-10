@@ -1,5 +1,6 @@
 import { get } from 'svelte/store'
-import { debug, log, settings } from 'src/stores'
+import { debug, api_log, log, settings } from 'src/stores'
+import { is_string } from 'src/utils/check'
 
 /** @type {[import("src/utils/types").GeoDirection]} */
 const geo_directions = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw']
@@ -25,8 +26,26 @@ export function getLocale() {
 	return get(settings).locale
 }
 
-export function logger(message) {
+export function api_logger(message) {
 	if (get(debug)) {
-		log.update((logs) => [...logs, message])
+		api_log.update((logs) => [...logs, message])
 	}
+}
+
+export function logger(level, ...message) {
+	if (get(debug)) {
+		log.update((logs) => [
+			...logs,
+			{
+				[level]: message
+					.map((e) => (is_string(e) ? e : JSON.stringify(e)))
+					.join(' '),
+			},
+		])
+	}
+}
+
+export const level = {
+	info: 'info',
+	error: 'error',
 }

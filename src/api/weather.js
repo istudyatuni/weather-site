@@ -3,7 +3,7 @@ import { get } from 'svelte/store'
 import { settings, weather } from 'src/stores'
 
 import { getIconIdByWmo } from 'src/utils/icons'
-import { logger } from 'src/utils'
+import { api_logger, logger, level } from 'src/utils'
 
 const BASE = 'https://api.open-meteo.com/v1/forecast'
 const refreshMinutes = 20
@@ -45,8 +45,9 @@ export async function loadCityWeather(force = false) {
 		params.set(k, v)
 	}
 
+	logger(level.info, 'fetching weather api for', s.current_city.name)
 	const response = await fetch(BASE + '?' + params.toString())
-	logger(response.url)
+	api_logger(response.url)
 	const content = await response.json()
 
 	if (response.ok) {

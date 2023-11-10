@@ -1,5 +1,5 @@
 <script context="module">
-	import { is_array, is_object } from "src/utils/check";
+	import { is_array, is_object, is_string } from 'src/utils/check'
 </script>
 
 <script>
@@ -25,7 +25,7 @@
 				{#if is_object(value) || is_array(value)}
 					<svelte:self object={value} />
 				{:else}
-					<code>{JSON.stringify(value)}</code>
+					<code>{is_string(value) ? value : JSON.stringify(value)}</code>
 				{/if}
 			</li>
 		{/each}
