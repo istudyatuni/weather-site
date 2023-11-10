@@ -11,7 +11,7 @@
 		(is_object(object) && object_entries.length === 0)
 
 	function is_object(o) {
-		return o instanceof Object
+		return o.constructor === Object
 	}
 	function is_array(o) {
 		return o instanceof Array
@@ -25,7 +25,7 @@
 			<li class:is-array={object_is_array}>
 				<code class:hidden={object_is_array}>{key}:</code>
 
-				{#if is_object(value)}
+				{#if is_object(value) || is_array(value)}
 					<svelte:self object={value} />
 				{:else}
 					<code>{JSON.stringify(value)}</code>
